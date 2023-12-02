@@ -33,8 +33,8 @@ namespace Baskom.Controller
             List<object[]> detail_matkul = this.m_DataDetailProgram.getAllDetailProgram();
             foreach (object[] item in detail_matkul)
             {
-                object[] program = this.m_DataProgram.getProgramById((int)item[0]);
-                object[] matkul = this.m_DataMataKuliah.getMataKuliahById((int)item[1]);
+                object[] program = this.m_DataProgram.getProgramById((int)item[1]);
+                object[] matkul = this.m_DataMataKuliah.getMataKuliahById((int)item[0]);
                 item[0] = program[1];
                 item[1] = matkul[2];
             }

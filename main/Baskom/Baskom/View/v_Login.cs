@@ -18,7 +18,7 @@ namespace Baskom.View
         public v_Login()
         {
             InitializeComponent();
-            this.c_Login = new c_Login();
+            this.c_Login = new c_Login(this);
         }
 
 

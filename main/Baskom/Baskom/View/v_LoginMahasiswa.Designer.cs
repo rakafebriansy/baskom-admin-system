@@ -33,7 +33,6 @@
             pnl_loginkanan = new Panel();
             btn_katasandi = new Button();
             lnk_loginsbgyglain = new LinkLabel();
-            lnk_lupakatasandi = new LinkLabel();
             btn_login = new Button();
             tbx_katasandilogin = new TextBox();
             lbl_katasandilogin = new Label();
@@ -66,7 +65,6 @@
             pnl_loginkanan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             pnl_loginkanan.Controls.Add(btn_katasandi);
             pnl_loginkanan.Controls.Add(lnk_loginsbgyglain);
-            pnl_loginkanan.Controls.Add(lnk_lupakatasandi);
             pnl_loginkanan.Controls.Add(btn_login);
             pnl_loginkanan.Controls.Add(tbx_katasandilogin);
             pnl_loginkanan.Controls.Add(lbl_katasandilogin);
@@ -89,6 +87,7 @@
             btn_katasandi.TabIndex = 10;
             btn_katasandi.Text = "Lihat";
             btn_katasandi.UseVisualStyleBackColor = true;
+            btn_katasandi.Click += btn_katasandi_Click;
             // 
             // lnk_loginsbgyglain
             // 
@@ -97,22 +96,11 @@
             lnk_loginsbgyglain.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Regular, GraphicsUnit.Point);
             lnk_loginsbgyglain.Location = new Point(231, 487);
             lnk_loginsbgyglain.Name = "lnk_loginsbgyglain";
-            lnk_loginsbgyglain.Size = new Size(162, 17);
+            lnk_loginsbgyglain.Size = new Size(158, 17);
             lnk_loginsbgyglain.TabIndex = 9;
             lnk_loginsbgyglain.TabStop = true;
-            lnk_loginsbgyglain.Text = "Log In sebagai yang lain";
+            lnk_loginsbgyglain.Text = "Login sebagai yang lain";
             lnk_loginsbgyglain.LinkClicked += linkLabel2_LinkClicked;
-            // 
-            // lnk_lupakatasandi
-            // 
-            lnk_lupakatasandi.AutoSize = true;
-            lnk_lupakatasandi.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Regular, GraphicsUnit.Point);
-            lnk_lupakatasandi.Location = new Point(79, 400);
-            lnk_lupakatasandi.Name = "lnk_lupakatasandi";
-            lnk_lupakatasandi.Size = new Size(121, 17);
-            lnk_lupakatasandi.TabIndex = 8;
-            lnk_lupakatasandi.TabStop = true;
-            lnk_lupakatasandi.Text = "Lupa Kata Sandi?";
             // 
             // btn_login
             // 
@@ -123,7 +111,7 @@
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(424, 44);
             btn_login.TabIndex = 6;
-            btn_login.Text = "Log In";
+            btn_login.Text = "Login";
             btn_login.UseVisualStyleBackColor = false;
             btn_login.Click += button1_Click;
             // 
@@ -228,7 +216,6 @@
         private TextBox tbx_nimlogin;
         private Label lbl_nimlogin;
         private Button btn_login;
-        private LinkLabel lnk_lupakatasandi;
         private LinkLabel lnk_loginsbgyglain;
         private Button btn_katasandi;
         private TableLayoutPanel lyt_loginmahasiswa;

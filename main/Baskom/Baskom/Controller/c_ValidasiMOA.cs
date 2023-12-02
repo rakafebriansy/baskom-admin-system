@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Baskom.Controller
 {
@@ -11,10 +12,12 @@ namespace Baskom.Controller
     {
         m_DataAkunMahasiswa m_DataAkunMahasiswa;
         m_DataPengajuanMitra m_DataPengajuanMitra;
-        public c_ValidasiMOA(m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataPengajuanMitra m_DataPengajuanMitra)
+        m_DataStatusValidasiMitra m_DataStatusValidasiMitra;
+        public c_ValidasiMOA(m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataPengajuanMitra m_DataPengajuanMitra, m_DataStatusValidasiMitra m_DataStatusValidasiMitra)
         {
             this.m_DataAkunMahasiswa = m_DataAkunMahasiswa;
             this.m_DataPengajuanMitra = m_DataPengajuanMitra;
+            this.m_DataStatusValidasiMitra = m_DataStatusValidasiMitra;
         }
         public List<object[]> initDataGridView()
         {
@@ -24,32 +27,28 @@ namespace Baskom.Controller
             {
                 object[] items = new object[5];
                 object[] mahasiswa = m_DataAkunMahasiswa.getMahasiswaById((int)pengajuan[4]);
+                string status_validasi_mitra = m_DataStatusValidasiMitra.getStatusValidasiMitraById((int)pengajuan[3]);
                 items[0] = mahasiswa[2];
                 items[1] = pengajuan[1];
                 items[2] = pengajuan[2];
-                items[3] = pengajuan[3];
+                items[3] = status_validasi_mitra;
                 items[4] = (int)pengajuan[0];
                 result.Add(items);
             }
             return result;
         }
-        public string simpanData(List<bool> data_status, List<int> data_id)
+        public List<string> initDgvComboBox()
         {
-            List<int> true_id = new List<int>();
-            List<int> false_id = new List<int>();
-            for (int i = 0; i<data_id.Count; i++)
+            return m_DataStatusValidasiMitra.getAllStatusValidasiMitra();
+        }
+        public string simpanData(List<string> data_status, List<int> data_id)
+        {
+            for (int i = 0; i < data_id.Count; i++)
             {
-                if (data_status[i])
-                {
-                    true_id.Add((int)data_id[i]);
-                }
-                else
-                {
-                    false_id.Add((int)data_id[i]);
-                }
+                int id_validasi = m_DataStatusValidasiMitra.getIdValidasiMitraByStatus(data_status[i]);
+                m_DataPengajuanMitra.updateStatusValidasi(id_validasi, data_id[i]);
             }
-            m_DataPengajuanMitra.updateStatusPengajuanMitra(true_id, false_id);
-            return "Data Berhasil Disimpan!";
+            return "Perubahan Berhasil Disimpan!";
         }
     }
 }

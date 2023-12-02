@@ -154,7 +154,6 @@
             lbl_nama.Size = new Size(108, 22);
             lbl_nama.TabIndex = 5;
             lbl_nama.Text = "Auryn Devi";
-            lbl_nama.Visible = false;
             lbl_nama.Click += label6_Click;
             // 
             // lbl_nim
@@ -249,7 +248,7 @@
             // clm_nilai_capaian
             // 
             clm_nilai_capaian.FillWeight = 45.81083F;
-            clm_nilai_capaian.HeaderText = "Nilai Capaian";
+            clm_nilai_capaian.HeaderText = "Deskripsi Kompetensi";
             clm_nilai_capaian.MinimumWidth = 8;
             clm_nilai_capaian.Name = "clm_nilai_capaian";
             clm_nilai_capaian.ReadOnly = true;
@@ -257,7 +256,7 @@
             // clm_deskripsi_nilai
             // 
             clm_deskripsi_nilai.FillWeight = 45.81083F;
-            clm_deskripsi_nilai.HeaderText = "Deskripsi Nilai Capaian";
+            clm_deskripsi_nilai.HeaderText = "Nilai Capaian";
             clm_deskripsi_nilai.MinimumWidth = 8;
             clm_deskripsi_nilai.Name = "clm_deskripsi_nilai";
             clm_deskripsi_nilai.ReadOnly = true;

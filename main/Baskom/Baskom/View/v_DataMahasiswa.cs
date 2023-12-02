@@ -27,11 +27,9 @@ namespace Baskom.View
         {
             tbl_daftarmhsadmin.Rows.Clear();
             List<object[]> data = this.c_DataMahasiswa.initDataGridView();
-            List<string> nama_timmbkm = this.c_DataMahasiswa.getAllNamaTimmbkm();
-            PIC.DataSource = nama_timmbkm;
             foreach (object[] item in data)
             {
-                tbl_daftarmhsadmin.Rows.Add(item[0], item[1]);
+                tbl_daftarmhsadmin.Rows.Add(item[0], item[1], item[2]);
             }
         }
 
@@ -47,7 +45,7 @@ namespace Baskom.View
 
         private void btn_tambahdaftarmhsadmin_Click(object sender, EventArgs e)
         {
-            c_Dashboard.setTambahMahasiswa();
+            c_Dashboard.setTambahMahasiswa(this);
             this.init();
         }
 
@@ -112,6 +110,11 @@ namespace Baskom.View
         {
             this.Hide();
             c_Dashboard.setTambahProgramMataKuliah();
+        }
+
+        private void managemenAkunToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

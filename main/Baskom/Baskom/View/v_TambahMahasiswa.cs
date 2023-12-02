@@ -15,12 +15,21 @@ namespace Baskom.View
     partial class v_TambahMahasiswa : Form
     {
         c_TambahMahasiswa c_TambahMahasiswa;
-        public v_TambahMahasiswa(m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataProdi m_DataProdi, m_DataAkunTimmbkm m_DataAkunTimmbkm)
+        v_DataMahasiswa v_DataMahasiswa;
+        public v_TambahMahasiswa(v_DataMahasiswa v_DataMahasiswa, m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataProdi m_DataProdi, m_DataAkunTimmbkm m_DataAkunTimmbkm, m_DataAkunDosen m_DataAkunDosen, m_DataPembagianTugas m_DataPembagianTugas)
         {
             InitializeComponent();
-            this.c_TambahMahasiswa = new c_TambahMahasiswa(m_DataAkunMahasiswa, m_DataProdi, m_DataAkunTimmbkm);
+            this.c_TambahMahasiswa = new c_TambahMahasiswa(m_DataAkunMahasiswa, m_DataProdi, m_DataAkunTimmbkm, m_DataAkunDosen, m_DataPembagianTugas);
+            this.v_DataMahasiswa = v_DataMahasiswa;
+            this.init();
         }
-
+        public void init()
+        {
+            List<string> prodi = c_TambahMahasiswa.initProdi();
+            List<string> timmbkm = c_TambahMahasiswa.initNamaTimmbkm();
+            cmbprogramstudimhs.DataSource = prodi;
+            cbx_dosenpic.DataSource = timmbkm;
+        }
         private void label9_Click(object sender, EventArgs e)
         {
 
@@ -41,7 +50,7 @@ namespace Baskom.View
             }
             else
             {
-                object[] mahasiswa = new object[9];
+                object[] mahasiswa = new object[10];
                 mahasiswa[0] = tbx_nimhasiswatambahmhs.Text;
                 mahasiswa[1] = tbx_namamahasiswatambahmhs.Text;
                 mahasiswa[2] = int.Parse(tbx_tahunmasukmahasiswatambahmhs.Text);
@@ -51,15 +60,17 @@ namespace Baskom.View
                 mahasiswa[6] = tbx_emailmahasiswatambahmhs.Text;
                 mahasiswa[7] = tbx_katasandimahasiswatambahmhs.Text;
                 mahasiswa[8] = cmbprogramstudimhs.Text;
+                mahasiswa[9] = cbx_dosenpic.Text;
                 message = c_TambahMahasiswa.tambahMahasiswaBaru(mahasiswa);
-                if (message.Length > 0)
-                {
-                    MessageBox.Show(message);
-                }
-                else
-                {
-                    this.Close();
-                }
+            }
+            if (message.Length > 0)
+            {
+                MessageBox.Show(message);
+            }
+            else
+            {
+                v_DataMahasiswa.init();
+                this.Close();
             }
         }
 
@@ -69,6 +80,11 @@ namespace Baskom.View
         }
 
         private void tbx_katasandimahasiswatambahmhs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

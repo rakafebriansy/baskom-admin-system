@@ -82,7 +82,7 @@ CREATE TABLE "Data_Pengajuan_Mitra"(
 	id_pengajuan serial primary key NOT NULL,
 	nama_mitra varchar(64) UNIQUE NOT NULL,
 	deskripsi_mitra text NOT NULL,
-	id_status_validasi int NOT NULL,
+	id_status_validasi int NOT NULL REFERENCES "Data_Status_Validasi_Mitra" NOT NULL,
 	id_mahasiswa int REFERENCES "Data_Akun_Mahasiswa"(id_mahasiswa) NOT NULL
 );
 
@@ -115,7 +115,7 @@ CREATE TABLE "Data_Penerimaan_Mitra"(
 	id_penerimaan serial primary key NOT NULL,
     status_pkl smallint NOT NULL,
     no_wa varchar(13) UNIQUE NOT NULL,
-    jumlah_sks varchar(13) NOT NULL,
+    jumlah_sks int NOT NULL,
     bukti_penerimaan varchar(255) NOT NULL,
 	id_bkp int REFERENCES "Data_BKP"(id_bkp) NOT NULL,
     id_mitra int REFERENCES "Data_Mitra"(id_mitra) NOT NULL,
@@ -322,16 +322,16 @@ SELECT * FROM "Data_Pengajuan_Mitra";
 
 
 INSERT INTO "Data_Penerimaan_Mitra" (status_pkl, no_wa, jumlah_sks, bukti_penerimaan, id_bkp, id_mitra, id_dosen, id_mahasiswa, id_program)
-VALUES (1, '085854606084', '20', 'linkbukti', 1, 2, 4, 3, 1),
-(1, '083456789034', '20', 'linkbukti', 2, 2, 4, 7, 2),
-(0, '081234567834', '20', 'linkbukti', 3, 3, 2, 8, 3),
-(1, '086783459023', '20', 'linkbukti', 4, 6, 4, 5, 4),
-(0, '083245678234', '20', 'linkbukti', 5, 2, 10, 6, 5),
-(1, '085234721478', '20', 'linkbukti', 6, 5, 7, 4, 6),
-(1, '089754673456', '20', 'linkbukti', 7, 7, 4, 9, 7),
-(1, '087865227430', '20', 'linkbukti', 8, 2, 6, 2, 8),
-(0, '086789045678', '20', 'linkbukti', 1, 3, 7, 1, 9),
-(1, '086543890234', '20', 'linkbukti', 2, 3, 6, 10, 10);
+VALUES (1, '085854606084', 20, 'linkbukti', 1, 2, 4, 3, 1),
+(1, '083456789034', 20, 'linkbukti', 2, 2, 4, 7, 2),
+(0, '081234567834', 20, 'linkbukti', 3, 3, 2, 8, 3),
+(1, '086783459023', 20, 'linkbukti', 4, 6, 4, 5, 4),
+(0, '083245678234', 20, 'linkbukti', 5, 2, 10, 6, 5),
+(1, '085234721478', 20, 'linkbukti', 6, 5, 7, 4, 6),
+(1, '089754673456', 20, 'linkbukti', 7, 7, 4, 9, 7),
+(1, '087865227430', 20, 'linkbukti', 8, 2, 6, 2, 8),
+(0, '086789045678', 20, 'linkbukti', 1, 3, 7, 1, 9),
+(1, '086543890234', 20, 'linkbukti', 2, 3, 6, 10, 10);
 SELECT * FROM "Data_Penerimaan_Mitra";
 
 

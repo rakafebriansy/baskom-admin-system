@@ -76,17 +76,7 @@ namespace Baskom.Model
         }
         public void sendPenerimaan(object[] penerimaan_mitra)
         {
-            int status_pkl;
-            if (penerimaan_mitra[0] == "True")
-            {
-                status_pkl = 1;
-            }
-            else
-            {
-                status_pkl = 0;
-            }
-
-            string query = $"INSERT INTO \"Data_Penerimaan\" (status_pkl, no_wa, jumlah_sks, bukti_penerimaan, id_bkp, id_mitra, id_dosen, id_mahasiswa) VALUES ({status_pkl}, '{penerimaan_mitra[1]}', {int.Parse(penerimaan_mitra[2].ToString())}, '{penerimaan_mitra[3]}', {penerimaan_mitra[4]}, {penerimaan_mitra[5]}, {penerimaan_mitra[6]}, {penerimaan_mitra[7]});";
+            string query = $"INSERT INTO \"Data_Penerimaan_Mitra\" (status_pkl, no_wa, jumlah_sks, bukti_penerimaan, id_bkp, id_mitra, id_dosen, id_mahasiswa,id_program) VALUES ({penerimaan_mitra[0]}, '{penerimaan_mitra[1]}', {penerimaan_mitra[2]}, '{penerimaan_mitra[3]}', {penerimaan_mitra[4]}, {penerimaan_mitra[5]}, {penerimaan_mitra[6]}, {penerimaan_mitra[7]}, {penerimaan_mitra[8]});";
             Database.Database.sendData(query);
         }
     }

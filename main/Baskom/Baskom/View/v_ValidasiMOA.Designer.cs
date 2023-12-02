@@ -46,7 +46,7 @@
             clm_nama = new DataGridViewTextBoxColumn();
             clm_mitra = new DataGridViewTextBoxColumn();
             clm_deskripsi = new DataGridViewTextBoxColumn();
-            clm_status = new DataGridViewCheckBoxColumn();
+            clm_status = new DataGridViewComboBoxColumn();
             btn_simpan = new Button();
             menuStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -271,6 +271,6 @@
         private DataGridViewTextBoxColumn clm_nama;
         private DataGridViewTextBoxColumn clm_mitra;
         private DataGridViewTextBoxColumn clm_deskripsi;
-        private DataGridViewCheckBoxColumn clm_status;
+        private DataGridViewComboBoxColumn clm_status;
     }
 }

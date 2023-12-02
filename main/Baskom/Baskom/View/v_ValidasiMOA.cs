@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Baskom.Controller;
 using Baskom.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Baskom.View
 {
@@ -17,13 +21,13 @@ namespace Baskom.View
     {
         private c_Dashboard c_Dashboard;
         private c_ValidasiMOA c_ValidasiMOA;
-        List<bool> data_status = new();
         List<int> data_id = new();
-        public v_ValidasiMOA(c_Dashboard c_Dashboard, m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataPengajuanMitra m_DataPengajuanMOA)
+        List<string> data_status = new();
+        public v_ValidasiMOA(c_Dashboard c_Dashboard, m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataPengajuanMitra m_DataPengajuanMOA, m_DataStatusValidasiMitra m_DataStatusValidasiMitra)
         {
             InitializeComponent();
             this.c_Dashboard = c_Dashboard;
-            this.c_ValidasiMOA = new c_ValidasiMOA(m_DataAkunMahasiswa, m_DataPengajuanMOA);
+            this.c_ValidasiMOA = new c_ValidasiMOA(m_DataAkunMahasiswa, m_DataPengajuanMOA, m_DataStatusValidasiMitra);
             this.init();
         }
         public void init()
@@ -32,17 +36,65 @@ namespace Baskom.View
             this.data_id.Clear();
             tbl_statuspengajuanmoa.Rows.Clear();
             List<object[]> data = this.c_ValidasiMOA.initDataGridView();
-            foreach (object[] item in data)
+            for (int i = 0; i < data.Count; i++)
             {
-                bool status_validasi = (Convert.ToInt32(item[3])) == 1 ? true : false;
-                tbl_statuspengajuanmoa.Rows.Add(item[0], item[1], item[2], status_validasi);
-                this.data_id.Add((int)item[4]);
-                this.data_status.Add(status_validasi);
+                List<string> list_status = c_ValidasiMOA.initDgvComboBox();
+                DataGridViewRow row = new DataGridViewRow();
+
+                DataGridViewTextBoxCell nama_mhs = new DataGridViewTextBoxCell();
+                nama_mhs.Value = data[i][0];
+
+                DataGridViewTextBoxCell mitra = new DataGridViewTextBoxCell();
+                mitra.Value = data[i][1];
+
+                DataGridViewTextBoxCell deskripsi = new DataGridViewTextBoxCell();
+                deskripsi.Value = data[i][2];
+
+                DataGridViewComboBoxCell status_validasi = new DataGridViewComboBoxCell();
+                if ((string)data[i][3] == "Belum Dibuat" || (string)data[i][3] == "Sudah Dibuat" || (string)data[i][3] == "Selesai")
+                {
+                    foreach (string status in list_status)
+                    {
+                        if (status == "Belum Dibuat" || status == "Sudah Dibuat" || status == "Selesai")
+                        {
+                            status_validasi.Items.Add(status);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (string status in list_status)
+                    {
+                        if (status == "Telah Diajukan" || status == "Telah Disetujui Mitra")
+                        {
+                            status_validasi.Items.Add(status);
+                        }
+                    }
+                }
+                status_validasi.Value = data[i][3];
+
+                row.Cells.Add(nama_mhs);
+                row.Cells.Add(mitra);
+                row.Cells.Add(deskripsi);
+                row.Cells.Add(status_validasi);
+
+                tbl_statuspengajuanmoa.Rows.Add(row);
+                if ((string)data[i][3] == "Telah Diajukan" || (string)data[i][3] == "Telah Disetujui Mitra")
+                {
+                    status_validasi.ReadOnly = true;
+                }
+
+                this.data_id.Add((int)data[i][4]);
+                this.data_status.Add((string)data[i][3]);
             }
+        }
+        void tbl_statuspengajuanmoa_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // (No need to write anything in here)
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //label2.Text = Convert.ToBoolean(tbl_statuspengajuanmoa.Rows[e.RowIndex].Cells[3].Value)? "True":"False";
+
         }
 
         private void daftarMitraToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,10 +124,13 @@ namespace Baskom.View
         {
             for (int i = 0; i < this.data_id.Count; i++)
             {
-                bool status_validasi = Convert.ToBoolean(tbl_statuspengajuanmoa.Rows[i].Cells[3].Value);
-                this.data_status[i] = status_validasi;
+                this.data_status[i] = (string)tbl_statuspengajuanmoa.Rows[i].Cells[3].Value;
             }
-            c_ValidasiMOA.simpanData(this.data_status, this.data_id);
+            string message = c_ValidasiMOA.simpanData(this.data_status, this.data_id);
+            if (message.Length > 0)
+            {
+                MessageBox.Show(message);
+            }
             this.init();
         }
 

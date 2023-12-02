@@ -43,20 +43,19 @@ namespace Baskom.Model
             return result;
         }
 
-        public void setDataAdmin(int id_admin, string nama_admin, string kata_sandi)
-        {
-            this.id_admin = id_admin;
-            this.email = nama_admin;
-            this.kata_sandi = kata_sandi;
-        }
         public object[] getAttributes()
         {
             object[] result = new object[4];
-            result[0] = this.nama_admin;
-            result[1] = this.email;
-            result[2] = this.nama_admin;
+            result[0] = this.id_admin;
+            result[1] = this.nama_admin;
+            result[2] = this.email;
             result[3] = this.kata_sandi;
             return result;
+        }
+        public void updateKataSandi(int id_admin, string kata_sandi_baru)
+        {
+            Database.Database.sendData($"UPDATE \"Data_Akun_Admin\" SET kata_sandi = '{kata_sandi_baru}' WHERE id_admin = {id_admin}");
+            this.kata_sandi = kata_sandi_baru;
         }
     }
 }

@@ -64,9 +64,9 @@
             panel1.Controls.Add(msp_navadmindosen);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(5);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1882, 52);
+            panel1.Size = new Size(1448, 41);
             panel1.TabIndex = 0;
             // 
             // msp_navadmindosen
@@ -77,7 +77,7 @@
             msp_navadmindosen.Location = new Point(0, 0);
             msp_navadmindosen.Name = "msp_navadmindosen";
             msp_navadmindosen.Padding = new Padding(0);
-            msp_navadmindosen.Size = new Size(1882, 38);
+            msp_navadmindosen.Size = new Size(1448, 26);
             msp_navadmindosen.TabIndex = 0;
             msp_navadmindosen.Text = "menuStrip1";
             msp_navadmindosen.ItemClicked += menuStrip1_ItemClicked_1;
@@ -85,7 +85,7 @@
             // dashboardToolStripMenuItem
             // 
             dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            dashboardToolStripMenuItem.Size = new Size(151, 38);
+            dashboardToolStripMenuItem.Size = new Size(114, 26);
             dashboardToolStripMenuItem.Text = "Dashboard";
             dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
             // 
@@ -93,20 +93,20 @@
             // 
             managemenAkunToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { akunDosenToolStripMenuItem, akunToolStripMenuItem });
             managemenAkunToolStripMenuItem.Name = "managemenAkunToolStripMenuItem";
-            managemenAkunToolStripMenuItem.Size = new Size(226, 38);
+            managemenAkunToolStripMenuItem.Size = new Size(170, 26);
             managemenAkunToolStripMenuItem.Text = "Managemen Akun";
             // 
             // akunDosenToolStripMenuItem
             // 
             akunDosenToolStripMenuItem.Name = "akunDosenToolStripMenuItem";
-            akunDosenToolStripMenuItem.Size = new Size(324, 44);
+            akunDosenToolStripMenuItem.Size = new Size(245, 34);
             akunDosenToolStripMenuItem.Text = "Akun Dosen";
             akunDosenToolStripMenuItem.Click += akunDosenToolStripMenuItem_Click;
             // 
             // akunToolStripMenuItem
             // 
             akunToolStripMenuItem.Name = "akunToolStripMenuItem";
-            akunToolStripMenuItem.Size = new Size(324, 44);
+            akunToolStripMenuItem.Size = new Size(245, 34);
             akunToolStripMenuItem.Text = "Akun Mahasiswa";
             akunToolStripMenuItem.Click += akunToolStripMenuItem_Click;
             // 
@@ -114,28 +114,28 @@
             // 
             mitraToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tambahMitraProgramToolStripMenuItem, tambahProgramMataKuliahToolStripMenuItem });
             mitraToolStripMenuItem.Name = "mitraToolStripMenuItem";
-            mitraToolStripMenuItem.Size = new Size(86, 38);
+            mitraToolStripMenuItem.Size = new Size(65, 26);
             mitraToolStripMenuItem.Text = "Mitra";
             mitraToolStripMenuItem.Click += mitraToolStripMenuItem_Click;
             // 
             // tambahMitraProgramToolStripMenuItem
             // 
             tambahMitraProgramToolStripMenuItem.Name = "tambahMitraProgramToolStripMenuItem";
-            tambahMitraProgramToolStripMenuItem.Size = new Size(464, 44);
+            tambahMitraProgramToolStripMenuItem.Size = new Size(348, 34);
             tambahMitraProgramToolStripMenuItem.Text = "Tambah Mitra Program";
             tambahMitraProgramToolStripMenuItem.Click += tambahMitraProgramToolStripMenuItem_Click;
             // 
             // tambahProgramMataKuliahToolStripMenuItem
             // 
             tambahProgramMataKuliahToolStripMenuItem.Name = "tambahProgramMataKuliahToolStripMenuItem";
-            tambahProgramMataKuliahToolStripMenuItem.Size = new Size(464, 44);
+            tambahProgramMataKuliahToolStripMenuItem.Size = new Size(348, 34);
             tambahProgramMataKuliahToolStripMenuItem.Text = "Tambah Program Mata Kuliah";
             tambahProgramMataKuliahToolStripMenuItem.Click += tambahProgramMataKuliahToolStripMenuItem_Click;
             // 
             // mataKuliahToolStripMenuItem
             // 
             mataKuliahToolStripMenuItem.Name = "mataKuliahToolStripMenuItem";
-            mataKuliahToolStripMenuItem.Size = new Size(158, 38);
+            mataKuliahToolStripMenuItem.Size = new Size(120, 26);
             mataKuliahToolStripMenuItem.Text = "Mata Kuliah";
             mataKuliahToolStripMenuItem.Click += mataKuliahToolStripMenuItem_Click;
             // 
@@ -143,21 +143,21 @@
             // 
             profileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { informasiAkunToolStripMenuItem, logoutToolStripMenuItem });
             profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            profileToolStripMenuItem.Size = new Size(103, 38);
+            profileToolStripMenuItem.Size = new Size(77, 26);
             profileToolStripMenuItem.Text = "Profile";
             profileToolStripMenuItem.Click += profileToolStripMenuItem_Click;
             // 
             // informasiAkunToolStripMenuItem
             // 
             informasiAkunToolStripMenuItem.Name = "informasiAkunToolStripMenuItem";
-            informasiAkunToolStripMenuItem.Size = new Size(302, 44);
+            informasiAkunToolStripMenuItem.Size = new Size(228, 34);
             informasiAkunToolStripMenuItem.Text = "Informasi Akun";
             informasiAkunToolStripMenuItem.Click += informasiAkunToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(302, 44);
+            logoutToolStripMenuItem.Size = new Size(228, 34);
             logoutToolStripMenuItem.Text = "Logout";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
@@ -165,11 +165,12 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.Controls.Add(tbl_daftardosenadmin);
-            panel2.Location = new Point(39, 308);
-            panel2.Margin = new Padding(5);
+            panel2.Location = new Point(30, 241);
+            panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1804, 467);
+            panel2.Size = new Size(1388, 365);
             panel2.TabIndex = 2;
+            panel2.Paint += panel2_Paint;
             // 
             // tbl_daftardosenadmin
             // 
@@ -177,12 +178,12 @@
             tbl_daftardosenadmin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbl_daftardosenadmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tbl_daftardosenadmin.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
-            tbl_daftardosenadmin.Location = new Point(5, 5);
-            tbl_daftardosenadmin.Margin = new Padding(5);
+            tbl_daftardosenadmin.Location = new Point(4, 4);
+            tbl_daftardosenadmin.Margin = new Padding(4);
             tbl_daftardosenadmin.Name = "tbl_daftardosenadmin";
             tbl_daftardosenadmin.RowHeadersWidth = 51;
             tbl_daftardosenadmin.RowTemplate.Height = 29;
-            tbl_daftardosenadmin.Size = new Size(1794, 456);
+            tbl_daftardosenadmin.Size = new Size(1380, 356);
             tbl_daftardosenadmin.TabIndex = 0;
             tbl_daftardosenadmin.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -213,10 +214,10 @@
             // 
             panel3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panel3.Controls.Add(btn_tambahdaftardosenadmin);
-            panel3.Location = new Point(1576, 819);
-            panel3.Margin = new Padding(5);
+            panel3.Location = new Point(1212, 640);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(265, 56);
+            panel3.Size = new Size(204, 44);
             panel3.TabIndex = 3;
             // 
             // btn_tambahdaftardosenadmin
@@ -226,9 +227,9 @@
             btn_tambahdaftardosenadmin.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
             btn_tambahdaftardosenadmin.ForeColor = SystemColors.ControlLightLight;
             btn_tambahdaftardosenadmin.Location = new Point(0, 0);
-            btn_tambahdaftardosenadmin.Margin = new Padding(5);
+            btn_tambahdaftardosenadmin.Margin = new Padding(4);
             btn_tambahdaftardosenadmin.Name = "btn_tambahdaftardosenadmin";
-            btn_tambahdaftardosenadmin.Size = new Size(260, 56);
+            btn_tambahdaftardosenadmin.Size = new Size(200, 44);
             btn_tambahdaftardosenadmin.TabIndex = 0;
             btn_tambahdaftardosenadmin.Text = "Tambah";
             btn_tambahdaftardosenadmin.UseVisualStyleBackColor = false;
@@ -238,10 +239,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(0, 3);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(0, 2);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(250, 42);
+            label1.Size = new Size(192, 32);
             label1.TabIndex = 0;
             label1.Text = "Daftar Dosen";
             label1.Click += label1_Click;
@@ -249,23 +250,23 @@
             // panel4
             // 
             panel4.Controls.Add(label1);
-            panel4.Location = new Point(39, 178);
-            panel4.Margin = new Padding(5);
+            panel4.Location = new Point(30, 139);
+            panel4.Margin = new Padding(4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(378, 70);
+            panel4.Size = new Size(291, 55);
             panel4.TabIndex = 4;
             // 
             // v_DataDosen
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1882, 968);
+            ClientSize = new Size(1448, 756);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(5);
+            Margin = new Padding(4);
             Name = "v_DataDosen";
             Text = "Baskom";
             WindowState = FormWindowState.Maximized;

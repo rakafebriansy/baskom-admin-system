@@ -39,6 +39,20 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
+        public object[] getBkpByNama(string bkp)
+        {
+            NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_BKP\" WHERE bkp = {bkp}");
+            int field_count = reader.FieldCount;
+            object[] result = new object[field_count];
+            while (reader.Read())
+            {
+                result[0] = reader[0];
+                result[1] = reader[1];
+                result[2] = reader[2];
+            }
+            reader.Close();
+            return result;
+        }
 
     }
 }

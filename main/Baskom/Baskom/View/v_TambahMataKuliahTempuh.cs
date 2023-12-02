@@ -18,15 +18,17 @@ namespace Baskom.View
         private m_DataAkunMahasiswa data_akun_pengguna;
         private c_TambahMataKuliahTempuh c_TambahMataKuliahTempuh;
         object[] data_mahasiswa;
-        public v_TambahMataKuliahTempuh(c_Dashboard c_Dashboard, m_DataAkunMahasiswa data_akun_pengguna, m_DataMataKuliah m_DataMataKuliah, m_DataMataKuliahTempuh m_DataMataKuliahTempuh)
+        List<object[]> list_konversi_sks;
+        List<object[]> list_data_sks;
+        public v_TambahMataKuliahTempuh(c_Dashboard c_Dashboard, m_DataAkunMahasiswa data_akun_pengguna, m_DataMataKuliah m_DataMataKuliah, m_DataMataKuliahTempuh m_DataMataKuliahTempuh, m_DataKonversiSks m_DataKonversiSks)
         {
             InitializeComponent();
             this.c_Dashboard = c_Dashboard;
-            this.c_Dashboard = c_Dashboard;
-            this.c_TambahMataKuliahTempuh = new c_TambahMataKuliahTempuh(m_DataMataKuliah, m_DataMataKuliahTempuh);
+            this.c_TambahMataKuliahTempuh = new c_TambahMataKuliahTempuh(m_DataMataKuliah, m_DataMataKuliahTempuh, m_DataKonversiSks);
             this.data_akun_pengguna = data_akun_pengguna;
             data_mahasiswa = data_akun_pengguna.getAttributes();
             this.init();
+            this.getDataSKS();
             this.isiComboBox();
         }
         public void init()
@@ -39,15 +41,42 @@ namespace Baskom.View
             }
         }
 
+        public void getDataSKS()
+        {
+            this.list_konversi_sks = this.c_TambahMataKuliahTempuh.getListKonversiSks((int)data_mahasiswa[0]);
+
+            List<int> list_idmatkul = new List<int>();
+
+            foreach (object[] item_konversi in list_konversi_sks)
+            {
+                list_idmatkul.Add((int)item_konversi[4]);
+            }
+
+            this.list_data_sks = this.c_TambahMataKuliahTempuh.getMatkulSKS(list_idmatkul);
+        }
+
         public void isiComboBox()
         {
-            List<object[]> list_non_matkul_tempuh = c_TambahMataKuliahTempuh.getAllNonMatkulTempuh((int)data_mahasiswa[0]);
-
             cbx_matkulygtlhditmph.Items.Clear();
             cbx_matkulygtlhditmph.ResetText();
-            foreach (object[] item in list_non_matkul_tempuh)
+
+            List<object[]> list_non_matkul_tempuh = c_TambahMataKuliahTempuh.getAllNonMatkulTempuh((int)data_mahasiswa[0]);
+            List<object[]> list_non_matkul_tempuh2 = list_non_matkul_tempuh;
+
+            foreach (object[] item in list_data_sks)
             {
-                cbx_matkulygtlhditmph.Items.Add(item[2]);
+                for (int i = 0; i < list_non_matkul_tempuh.Count(); i++)
+                {
+                    if (item[1].ToString() == list_non_matkul_tempuh[i][1].ToString())
+                    {
+                        list_non_matkul_tempuh2.RemoveAt(i);
+                    }
+                }
+            }
+
+            foreach (object[] item2 in list_non_matkul_tempuh2)
+            {
+                cbx_matkulygtlhditmph.Items.Add(item2[2]);
             }
         }
         private void label1_Click(object sender, EventArgs e)
@@ -81,7 +110,7 @@ namespace Baskom.View
         private void statusMOAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            c_Dashboard.setStatusMOA();
+            c_Dashboard.setPengajuanMOA();
         }
 
         private void konversiNilaiToolStripMenuItem_Click(object sender, EventArgs e)

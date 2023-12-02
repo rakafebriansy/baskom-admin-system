@@ -123,5 +123,10 @@ namespace Baskom.View
             this.Close();
             c_Dashboard.setTambahProgramMataKuliah();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

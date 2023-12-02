@@ -66,14 +66,15 @@
             // 
             // btn_lihat
             // 
-            btn_lihat.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_lihat.Location = new Point(360, 342);
+            btn_lihat.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_lihat.Location = new Point(360, 349);
             btn_lihat.Margin = new Padding(3, 4, 3, 4);
             btn_lihat.Name = "btn_lihat";
-            btn_lihat.Size = new Size(113, 51);
+            btn_lihat.Size = new Size(113, 31);
             btn_lihat.TabIndex = 8;
-            btn_lihat.Text = "lihat";
+            btn_lihat.Text = "Lihat";
             btn_lihat.UseVisualStyleBackColor = true;
+            btn_lihat.Click += btn_lihat_Click;
             // 
             // btn_login
             // 
@@ -85,7 +86,7 @@
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(448, 59);
             btn_login.TabIndex = 7;
-            btn_login.Text = "log in";
+            btn_login.Text = "Login";
             btn_login.UseVisualStyleBackColor = false;
             btn_login.Click += btn_login_Click;
             // 
@@ -113,10 +114,10 @@
             lnk_loginsebagaiyanglain.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point);
             lnk_loginsebagaiyanglain.Location = new Point(141, 536);
             lnk_loginsebagaiyanglain.Name = "lnk_loginsebagaiyanglain";
-            lnk_loginsebagaiyanglain.Size = new Size(172, 20);
+            lnk_loginsebagaiyanglain.Size = new Size(174, 20);
             lnk_loginsebagaiyanglain.TabIndex = 4;
             lnk_loginsebagaiyanglain.TabStop = true;
-            lnk_loginsebagaiyanglain.Text = "log in sebagai yang lain";
+            lnk_loginsebagaiyanglain.Text = "Login sebagai yang lain";
             lnk_loginsebagaiyanglain.LinkClicked += lnk_loginsebagaiyanglain_LinkClicked;
             // 
             // lbl_KataSandi

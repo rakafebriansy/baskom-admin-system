@@ -26,24 +26,15 @@ namespace Baskom.Controller
             List<object[]> data_mahasiswa = this.m_DataAkunMahasiswa.getAllMahasiswa();
             foreach (object[] mahasiswa in data_mahasiswa)
             {
-                object[] items = new object[2];  
+                object[] items = new object[3];  
                 object[] pembagian_tugas = this.m_DataPembagianTugas.getPembagianTugasByIdMhs((int)mahasiswa[0]);
+                object[] timmbkm = this.m_DataAkunTimmbkm.getTimmbkmById((int)pembagian_tugas[2]);
+                object[] dosen = this.m_DataAkunDosen.getDosenById((int)timmbkm[2]);
                 items[0] = mahasiswa[2];
                 items[1] = mahasiswa[1];
+                items[2] = dosen[3];
                 result.Add(items);
             }
-            return result;
-        }
-        public List<string> getAllNamaTimmbkm()
-        {
-            List<string> result = new List<string>();
-            List<object[]> data_timmbkm = m_DataAkunTimmbkm.getAllTimmbkm();
-            foreach (object[] timmbkm in data_timmbkm)
-            {
-                string nama = (string)m_DataAkunDosen.getDosenById((int)timmbkm[2])[3];
-                result.Add(nama);
-            }
-
             return result;
         }
     }

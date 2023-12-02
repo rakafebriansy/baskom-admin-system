@@ -92,14 +92,14 @@
             // 
             statusMitraToolStripMenuItem.Name = "statusMitraToolStripMenuItem";
             statusMitraToolStripMenuItem.Size = new Size(270, 34);
-            statusMitraToolStripMenuItem.Text = "Pengajuan MOA";
+            statusMitraToolStripMenuItem.Text = "Penerimaan Mitra";
             statusMitraToolStripMenuItem.Click += statusMitraToolStripMenuItem_Click;
             // 
             // statusMitraToolStripMenuItem1
             // 
             statusMitraToolStripMenuItem1.Name = "statusMitraToolStripMenuItem1";
             statusMitraToolStripMenuItem1.Size = new Size(270, 34);
-            statusMitraToolStripMenuItem1.Text = "Status MOA";
+            statusMitraToolStripMenuItem1.Text = "Pengajuan MOA";
             statusMitraToolStripMenuItem1.Click += statusMitraToolStripMenuItem1_Click;
             // 
             // mataKuliahToolStripMenuItem

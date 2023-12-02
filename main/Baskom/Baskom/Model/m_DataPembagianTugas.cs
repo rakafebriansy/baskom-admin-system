@@ -39,5 +39,9 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
+        public void sendPembagianTugas(int id_mahasiswa, int id_timmbkm)
+        {
+            Database.Database.sendData($"INSERT INTO \"Data_Pembagian_Tugas\" (id_mahasiswa, id_timmbkm) VALUES ({id_mahasiswa}, {id_timmbkm});");
+        }
     }
 }

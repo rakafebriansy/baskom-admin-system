@@ -113,8 +113,8 @@ namespace Baskom.Model
         {
             m_DataProdi m_DataProdi = new();
             string nama_prodi = m_DataProdi.getNamaProdiById(id_prodi);
-            object[] result = new object[11];
-            result[0] = this.id_mahasiswa;
+            object[] result = new object[10];
+            result[0] = (int)this.id_mahasiswa;
             result[1] = this.nim;
             result[2] = this.nama_mahasiswa;
             result[3] = this.tahun_masuk;
@@ -126,12 +126,9 @@ namespace Baskom.Model
             result[9] = nama_prodi;
             return result;
         }
-        public void sendMahasiswa(object[] mahasiswa, List<object[]> data_timmbkm)
+        public void sendMahasiswa(object[] mahasiswa)
         {
-            int sum_data = data_timmbkm.Count;
-            Random rnd = new Random();
-            int index = rnd.Next(1, sum_data);
-            Database.Database.sendData($"INSERT INTO \"Data_Akun_Mahasiswa\" (nim,nama_mahasiswa,tahun_masuk,status_mahasiswa,no_wa,batch_mbkm,email,kata_sandi,id_prodi,id_timmbkm) VALUES ('{mahasiswa[0]}','{mahasiswa[1]}',{mahasiswa[2]},{mahasiswa[3]},'{mahasiswa[4]}',{mahasiswa[5]},'{mahasiswa[6]}','{mahasiswa[7]}',{mahasiswa[8]},{data_timmbkm[index][0]});");
+            Database.Database.sendData($"INSERT INTO \"Data_Akun_Mahasiswa\" (nim,nama_mahasiswa,tahun_masuk,status_mahasiswa,no_wa,batch_mbkm,email,kata_sandi,id_prodi) VALUES ('{mahasiswa[0]}','{mahasiswa[1]}',{mahasiswa[2]},{mahasiswa[3]},'{mahasiswa[4]}',{mahasiswa[5]},'{mahasiswa[6]}','{mahasiswa[7]}',{mahasiswa[8]});");
         }
         public void updateKataSandi(int id_mahasiswa,string kata_sandi_baru)
         {

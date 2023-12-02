@@ -11,17 +11,31 @@ namespace Baskom.Controller
     {
         m_DataMataKuliah m_DataMataKuliah;
         m_DataMataKuliahTempuh m_DataMataKuliahTempuh;
+        m_DataKonversiSks m_DataKonversiSks;
 
-        public c_TambahMataKuliahTempuh(m_DataMataKuliah m_DataMataKuliah, m_DataMataKuliahTempuh m_DataMataKuliahTempuh)
+        public c_TambahMataKuliahTempuh(m_DataMataKuliah m_DataMataKuliah, m_DataMataKuliahTempuh m_DataMataKuliahTempuh, m_DataKonversiSks m_DataKonversiSks)
         {
             this.m_DataMataKuliah = m_DataMataKuliah;
             this.m_DataMataKuliahTempuh = m_DataMataKuliahTempuh;
+            this.m_DataKonversiSks = m_DataKonversiSks;
         }
 
         public List<object[]> initDataGridView(int id_mahasiswa)
         {
             List<int> list_id_matkul_tempuh = this.m_DataMataKuliahTempuh.getAllIdMatkulByIdMhs(id_mahasiswa);
             List<object[]> result = this.m_DataMataKuliah.getAllMatkulByIdMatkul(list_id_matkul_tempuh);
+            return result;
+        }
+
+        public List<object[]> getListKonversiSks(int id_mahasiswa)
+        {
+            List<object[]> result = this.m_DataKonversiSks.getAllKonversiSksByIdMhs(id_mahasiswa);
+            return result;
+        }
+
+        public List<object[]> getMatkulSKS(List<int> id_matkul)
+        {
+            List<object[]> result = this.m_DataMataKuliah.getAllMatkulByIdMatkul(id_matkul);
             return result;
         }
 

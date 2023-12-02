@@ -13,45 +13,62 @@ namespace Baskom.Controller
         m_DataAkunDosen m_DataAkunDosen;
         m_DataMitra m_DataMitra;
         m_DataPenerimaanMitra m_DataPenerimaanMitra;
-        public c_PenerimaanMitra(m_DataBkp m_DataBkp, m_DataAkunDosen m_DataAkunDosen, m_DataMitra m_DataMitra, m_DataPenerimaanMitra m_DataPenerimaanMitra)
+        m_DataProgram m_DataProgram;
+        public c_PenerimaanMitra(m_DataBkp m_DataBkp, m_DataAkunDosen m_DataAkunDosen, m_DataMitra m_DataMitra, m_DataPenerimaanMitra m_DataPenerimaanMitra, m_DataProgram m_DataProgram)
         {
             this.m_DataBkp = m_DataBkp;
             this.m_DataAkunDosen = m_DataAkunDosen;
             this.m_DataMitra = m_DataMitra;
             this.m_DataPenerimaanMitra = m_DataPenerimaanMitra;
+            this.m_DataProgram = m_DataProgram;
         }
-
         public List<object[]> getAllDataBKP()
         {
-            List<object[]> result = this.m_DataBkp.getAllBkp();
-            return result;
+            return this.m_DataBkp.getAllBkp(); ;
         }
         public List<object[]> getAllDataDosen()
         {
-            List<object[]> result = this.m_DataAkunDosen.getAllDosen();
-            return result;
+            return this.m_DataAkunDosen.getAllDosen(); ;
         }
         public List<object[]> getAllDataMitra()
         {
-            List<object[]> result = this.m_DataMitra.getAllMitra();
-            return result;
+            return this.m_DataMitra.getAllMitra(); ;
         }
         public List<object[]> getAllPenerimaanMitra()
         {
-            List<object[]> result = this.m_DataPenerimaanMitra.getAllPenerimaanMitra();
-            return result;
+            return this.m_DataPenerimaanMitra.getAllPenerimaanMitra();
         }
-        public object[] getDataBKPbyId(int id_bkp)
+        public object[] getBKP(int id_bkp)
         {
             return m_DataBkp.getBkpById(id_bkp);
         }        
-        public object[] getMitrabyId(int id_mitra)
+        public object[] getBKP(string nama_bkp)
+        {
+            return m_DataBkp.getBkpByNama(nama_bkp);
+        }        
+        public object[] getMitra(int id_mitra)
         {
             return m_DataMitra.getMitraById(id_mitra);
         }        
-        public object[] getDPAbyId(int id_dosen)
+        public object[] getMitra(string nama_mitra)
+        {
+            return m_DataMitra.getMitraByNama(nama_mitra);
+        }               
+        public object[] getProgram(int id_program)
+        {
+            return m_DataProgram.getProgramById(id_program);
+        }        
+        public object[] getDPA(int id_dosen)
         {
             return m_DataAkunDosen.getDosenById(id_dosen);
+        }       
+        public object[] getDPA(string nama_dosen)
+        {
+            return m_DataAkunDosen.getDosenByNama(nama_dosen);
+        }
+        public List<string> getNamaProgram()
+        {
+            return m_DataProgram.getAllNamaProgram();
         }
         public string tambahPenerimaanMitra(object[] penerimaan_mitra_baru)
         {
@@ -66,6 +83,8 @@ namespace Baskom.Controller
                     return message;
                 }
             }
+            penerimaan_mitra_baru[8] = m_DataProgram.getProgramByNama((string)penerimaan_mitra_baru[8])[0];
+            penerimaan_mitra_baru[0] = Convert.ToInt16(penerimaan_mitra_baru[0]);
             m_DataPenerimaanMitra.sendPenerimaan(penerimaan_mitra_baru);
             return message;
         }
