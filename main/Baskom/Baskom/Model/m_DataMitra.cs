@@ -53,5 +53,10 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
+        public void addMitra(object[] mitra)
+        {
+            Database.Database.sendData($"INSERT INTO \"Data_Mitra\" (nama_mitra, deskripsi_mitra) VALUES ('{(string)mitra[0]}','{(string)mitra[1]}');");
+        }
+
     }
 }

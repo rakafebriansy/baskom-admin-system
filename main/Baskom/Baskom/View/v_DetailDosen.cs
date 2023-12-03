@@ -24,10 +24,11 @@ namespace Baskom.View
         public void init(string nip)
         {
             object[] data = c_DetailDosen.initProfile(nip);
+            lbl_detailnowadosen.Text = (string)data[4];
             lbl_detailnamadosen.Text = (string)data[3];
             lbl_detailnipdosen.Text = (string)data[1];
             lbl_detailnidndosen.Text = (string)data[2];
-            lbl_detailjabatandosen.Text = c_DetailDosen.cekTimmbkm((string)data[2])? "Tim MBKM": "Dosen";
+            lbl_detailjabatandosen.Text = c_DetailDosen.cekTimmbkm((string)data[2]) ? "Tim MBKM" : "Dosen";
             lbl_detailemaildosen.Text = (string)data[5];
         }
 
@@ -57,6 +58,11 @@ namespace Baskom.View
         }
 
         private void lbl_detailemaildosen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_detailnowadosen_Click(object sender, EventArgs e)
         {
 
         }

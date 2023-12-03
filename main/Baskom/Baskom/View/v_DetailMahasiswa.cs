@@ -32,6 +32,7 @@ namespace Baskom.View
             lbl_detailstatusmhs.Text = Convert.ToInt32(data[4]) == 1 ? "Aktif" : "Tidak Aktif";
             lbl_detailnowamhs.Text = (string)data[5];
             lbl_detailbatchmhs.Text = data[6].ToString();
+            lbl_detailemailmhs.Text = (string)data[7];
         }
         private void lbl_detailthmasukdosen_Click(object sender, EventArgs e)
         {
@@ -76,6 +77,11 @@ namespace Baskom.View
         }
 
         private void lbl_detailbatchmhs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_detailnowamhs_Click(object sender, EventArgs e)
         {
 
         }

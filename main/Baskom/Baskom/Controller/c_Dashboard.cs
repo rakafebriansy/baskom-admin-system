@@ -94,7 +94,7 @@ namespace Baskom.Controller
         }
         public void setValidasiMOA()
         {
-            v_ValidasiMOA v_ValidasiMOA = new(this, m_DataAkunMahasiswa, this.m_DataPengajuanMitra, this.m_DataStatusValidasiMitra);
+            v_ValidasiMOA v_ValidasiMOA = new(this, m_DataAkunMahasiswa, this.m_DataPengajuanMitra, this.m_DataStatusValidasiMitra, this.m_DataMitra);
             v_ValidasiMOA.Show();
         }
         public void setPembagianTugas()

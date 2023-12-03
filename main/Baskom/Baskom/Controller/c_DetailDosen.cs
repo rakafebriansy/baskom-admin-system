@@ -22,15 +22,16 @@ namespace Baskom.Controller
         }
         public bool cekTimmbkm(string nidn)
         {
-            try
+            List<object[]> timmbkm = m_DataAkunTimmbkm.getAllTimmbkm();
+            foreach (object[] timmb in timmbkm)
             {
-                object[] timmbkm = m_DataAkunTimmbkm.getTimmbkmByNidn(nidn);
-                return true;
+                if ((string)timmb[1] == nidn)
+                {
+                    return true;
+                }
             }
-            catch
-            {
-                return false;
-            }
+            return false;
+                
         }
     }
 }

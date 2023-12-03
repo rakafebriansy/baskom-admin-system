@@ -26,11 +26,16 @@ namespace Baskom.View
         public void init()
         {
             dataGridView1.Rows.Clear();
-            List<object[]> data = this.c_PembagianTugas.initDataGridView();
-            foreach (object[] item in data)
+            try
             {
-                dataGridView1.Rows.Add(item[0], item[1], item[2], item[3], item[4], item[5]);
+
+                List<object[]> data = this.c_PembagianTugas.initDataGridView();
+                foreach (object[] item in data)
+                {
+                    dataGridView1.Rows.Add(item[0], item[1], item[2], item[3], item[4], item[5]);
+                }
             }
+            catch { }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

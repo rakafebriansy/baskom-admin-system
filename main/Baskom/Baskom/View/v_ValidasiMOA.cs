@@ -23,11 +23,11 @@ namespace Baskom.View
         private c_ValidasiMOA c_ValidasiMOA;
         List<int> data_id = new();
         List<string> data_status = new();
-        public v_ValidasiMOA(c_Dashboard c_Dashboard, m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataPengajuanMitra m_DataPengajuanMOA, m_DataStatusValidasiMitra m_DataStatusValidasiMitra)
+        public v_ValidasiMOA(c_Dashboard c_Dashboard, m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataPengajuanMitra m_DataPengajuanMOA, m_DataStatusValidasiMitra m_DataStatusValidasiMitra, m_DataMitra m_DataMitra)
         {
             InitializeComponent();
             this.c_Dashboard = c_Dashboard;
-            this.c_ValidasiMOA = new c_ValidasiMOA(m_DataAkunMahasiswa, m_DataPengajuanMOA, m_DataStatusValidasiMitra);
+            this.c_ValidasiMOA = new c_ValidasiMOA(m_DataAkunMahasiswa, m_DataPengajuanMOA, m_DataStatusValidasiMitra, m_DataMitra);
             this.init();
         }
         public void init()
@@ -51,27 +51,12 @@ namespace Baskom.View
                 deskripsi.Value = data[i][2];
 
                 DataGridViewComboBoxCell status_validasi = new DataGridViewComboBoxCell();
-                status_validasi.Items.Add(data[i][3]);
-                if ((string)data[i][3] == "Belum Dibuat" || (string)data[i][3] == "Sudah Dibuat" || (string)data[i][3] == "Selesai")
+                if ((string)data[i][3] == "Belum Dibuat" || (string)data[i][3] == "Telah Diajukan" || (string)data[i][3] == "Telah Disetujui Mitra")
                 {
-                    foreach (string status in list_status)
-                    {
-                        if (status != "Belum Dibuat" && status != "Sudah Dibuat" && status != "Selesai")
-                        {
-                            status_validasi.Items.Add(status);
-                        }
-                    }
+                    status_validasi.Items.Add(data[i][3]);
                 }
-                else
-                {
-                    foreach (string status in list_status)
-                    {
-                        if (status != "Telah Diajukan" && status != "Telah Disetujui Mitra")
-                        {
-                            status_validasi.Items.Add(status);
-                        }
-                    }
-                }
+                status_validasi.Items.Add(list_status[1]);
+                status_validasi.Items.Add(list_status[4]);
                 status_validasi.Value = data[i][3];
 
                 row.Cells.Add(nama_mhs);
@@ -127,6 +112,13 @@ namespace Baskom.View
             for (int i = 0; i < this.data_id.Count; i++)
             {
                 this.data_status[i] = (string)tbl_statuspengajuanmoa.Rows[i].Cells[3].Value;
+                if ((string)tbl_statuspengajuanmoa.Rows[i].Cells[3].Value == "Selesai")
+                {
+                    object[] mitra = new object[2];
+                    mitra[0] = tbl_statuspengajuanmoa.Rows[i].Cells[1].Value;
+                    mitra[1] = tbl_statuspengajuanmoa.Rows[i].Cells[2].Value;
+                    c_ValidasiMOA.addMitra(mitra);
+                }
             }
             string message = c_ValidasiMOA.simpanData(this.data_status, this.data_id);
             if (message.Length > 0)
@@ -134,6 +126,8 @@ namespace Baskom.View
                 MessageBox.Show(message);
             }
             this.init();
+            this.Close();
+            c_Dashboard.setDashboardTimmbkm();
         }
 
         private void berandaToolStripMenuItem_Click(object sender, EventArgs e)

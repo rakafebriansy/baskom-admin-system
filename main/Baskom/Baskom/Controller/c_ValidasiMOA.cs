@@ -13,11 +13,13 @@ namespace Baskom.Controller
         m_DataAkunMahasiswa m_DataAkunMahasiswa;
         m_DataPengajuanMitra m_DataPengajuanMitra;
         m_DataStatusValidasiMitra m_DataStatusValidasiMitra;
-        public c_ValidasiMOA(m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataPengajuanMitra m_DataPengajuanMitra, m_DataStatusValidasiMitra m_DataStatusValidasiMitra)
+        m_DataMitra m_DataMitra;
+        public c_ValidasiMOA(m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataPengajuanMitra m_DataPengajuanMitra, m_DataStatusValidasiMitra m_DataStatusValidasiMitra, m_DataMitra m_DataMitra)
         {
             this.m_DataAkunMahasiswa = m_DataAkunMahasiswa;
             this.m_DataPengajuanMitra = m_DataPengajuanMitra;
             this.m_DataStatusValidasiMitra = m_DataStatusValidasiMitra;
+            this.m_DataMitra = m_DataMitra;
         }
         public List<object[]> initDataGridView()
         {
@@ -49,6 +51,10 @@ namespace Baskom.Controller
                 m_DataPengajuanMitra.updateStatusValidasi(id_validasi, data_id[i]);
             }
             return "Perubahan Berhasil Disimpan!";
+        }
+        public void addMitra(object[] hasil)
+        {
+            m_DataMitra.addMitra(hasil);
         }
     }
 }
