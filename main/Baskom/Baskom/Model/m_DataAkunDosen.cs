@@ -44,6 +44,23 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
+        public object[] getDosenByNama(string nama_dosen)
+        {
+            object[] result = new object[7];
+            NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Akun_Dosen\" WHERE nama_dosen = '{nama_dosen}'");
+            while (reader.Read())
+            {
+                result[0] = reader[0];
+                result[1] = reader[1];
+                result[2] = reader[2];
+                result[3] = reader[3];
+                result[4] = reader[4];
+                result[5] = reader[5];
+                result[6] = reader[6];
+            }
+            reader.Close();
+            return result;
+        }
         public List<object[]> getAllDosen()
         {
             List<object[]> result = new List<object[]>();
@@ -63,7 +80,7 @@ namespace Baskom.Model
             }
             reader.Close();
             return result;
-        }
+        }      
         public object[] getAttributes(int id_dosen)
         {
             object[] result = new object[7];
@@ -80,6 +97,10 @@ namespace Baskom.Model
         public void sendDosen(object[] dosen)
         {
             Database.Database.sendData($"INSERT INTO \"Data_Akun_Dosen\" (nip, nidn, nama_dosen, no_wa, email, kata_sandi) VALUES ('{dosen[0]}','{dosen[1]}','{dosen[2]}','{dosen[3]}','{dosen[4]}','{dosen[5]}');");
+        }
+        public void updateKataSandi(int id_dosen, string kata_sandi_baru)
+        {
+            Database.Database.sendData($"UPDATE \"Data_Akun_Dosen\" SET kata_sandi = '{kata_sandi_baru}' WHERE id_dosen = {id_dosen}");
         }
     }
 }

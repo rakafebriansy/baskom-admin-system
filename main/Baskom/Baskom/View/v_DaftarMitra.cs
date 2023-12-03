@@ -17,11 +17,11 @@ namespace Baskom.View
         private c_Dashboard c_Dashboard;
         private c_DaftarMitra c_DaftarMitra;
 
-        public v_DaftarMitra(c_Dashboard c_Dashboard, m_DataMitra m_DataMitra, m_DataBkp m_DataBkp)
+        public v_DaftarMitra(c_Dashboard c_Dashboard, m_DataMitra m_DataMitra)
         {
             InitializeComponent();
             this.c_Dashboard = c_Dashboard;
-            this.c_DaftarMitra = new c_DaftarMitra(m_DataMitra, m_DataBkp);
+            this.c_DaftarMitra = new c_DaftarMitra(m_DataMitra);
             this.init();
         }
         public void init()
@@ -30,7 +30,7 @@ namespace Baskom.View
             List<object[]> data = this.c_DaftarMitra.initDataGridView();
             foreach (object[] item in data)
             {
-                tbl_daftarmitra.Rows.Add(item[0], item[1], item[2]);
+                tbl_daftarmitra.Rows.Add(item[0], item[1]);
             }
         }
         private void daftarMitraToolStripMenuItem_Click(object sender, EventArgs e)

@@ -16,11 +16,14 @@ namespace Baskom.View
     {
         private c_Akun c_Akun;
         private m_DataAkunTimmbkm m_DataAkunTimmbkm = new();
+        private v_Login v_Login;
+        private string kata_sandi;
 
-        public v_LoginTimmbkm(c_Akun c_Akun)
+        public v_LoginTimmbkm(c_Akun c_Akun, v_Login v_Login)
         {
             InitializeComponent();
             this.c_Akun = c_Akun;
+            this.v_Login = v_Login;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -43,7 +46,8 @@ namespace Baskom.View
 
         private void tbx_katasandi_TextChanged(object sender, EventArgs e)
         {
-
+            tbx_katasandi.ForeColor = Color.Black;
+            tbx_katasandi.PasswordChar = '*';
         }
 
         private void lnk_lupasandi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -54,7 +58,6 @@ namespace Baskom.View
         private void lnk_loginsebagaiyanglain_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
-            v_Login v_Login = new();
             v_Login.Show();
         }
 
@@ -73,6 +76,23 @@ namespace Baskom.View
             {
                 return true;
             }
+        }
+
+        private void btn_lihat_Click(object sender, EventArgs e)
+        {
+            if (tbx_katasandi.PasswordChar == (char)0)
+            {
+                tbx_katasandi.PasswordChar = '*';
+            }
+            else
+            {
+                tbx_katasandi.PasswordChar = (char)0;
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

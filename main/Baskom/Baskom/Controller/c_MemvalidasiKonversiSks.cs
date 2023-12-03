@@ -51,7 +51,21 @@ namespace Baskom.Controller
                     result.Add(items);
                 }
             }
-            return result;
+
+            List<object[]> result2 = result;
+
+            for (int i = 0; i < result.Count(); i++)
+            {
+                for (int j = 0; j < result.Count(); j++)
+                {
+                    if (result[i][1].ToString() == result[j][1].ToString())
+                    {
+                        result2.RemoveAt(j);
+                    }
+                }
+            }
+
+            return result2;
         }
     }
 }

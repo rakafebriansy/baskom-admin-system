@@ -123,14 +123,28 @@ namespace Baskom.View
 
         private void btn_tambah_Click(object sender, EventArgs e)
         {
-            string message = c_TambahProgramMataKuliah.tambahDetailMitraBaru(tbx_program.Text, cbx_matakuliah.Text); ;
-            if (message.Length > 0)
+            string message = "";
+
+            if (tbx_program.Text == "")
             {
+                message = "Program Tidak Boleh Kosong!";
                 MessageBox.Show(message);
             }
-            else
+            else if (tbx_program.Text.ToCharArray().Any(c => Char.IsNumber(c)))
             {
-                this.init();
+                message = "Program Hanya Berisi Huruf!";
+                MessageBox.Show(message);
+            } else
+            {
+                message = c_TambahProgramMataKuliah.tambahDetailMitraBaru(tbx_program.Text, cbx_matakuliah.Text); ;
+                if (message.Length > 0)
+                {
+                    MessageBox.Show(message);
+                }
+                else
+                {
+                    this.init();
+                }
             }
         }
     }

@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Baskom.View
 {
@@ -17,24 +16,57 @@ namespace Baskom.View
     {
         private c_Dashboard c_Dashboard;
         private m_DataAkunMahasiswa data_akun_pengguna;
-        private c_KonversiSks c_KonversiSks;
+        private c_TambahKonversiSks c_TambahKonversiSks;
         List<object[]> list_konversi_sks;
         List<object[]> list_data_sks;
 
         private object[] data_mahasiswa;
         int jumlah_sks;
-
         public v_TambahKonversiSks(c_Dashboard c_Dashboard, m_DataAkunMahasiswa data_akun_pengguna, m_DataKonversiSks m_DataKonversiSks, m_DataMataKuliah m_DataMataKuliah, m_DataMataKuliahTempuh m_DataMataKuliahTempuh, m_DataPenerimaanMitra m_DataPenerimaanMitra)
         {
             InitializeComponent();
             this.c_Dashboard = c_Dashboard;
-            this.c_KonversiSks = new c_KonversiSks(m_DataKonversiSks, m_DataMataKuliah, m_DataMataKuliahTempuh, m_DataPenerimaanMitra);
+            this.c_TambahKonversiSks = new c_TambahKonversiSks(m_DataKonversiSks, m_DataMataKuliah, m_DataMataKuliahTempuh, m_DataPenerimaanMitra);
             this.data_akun_pengguna = data_akun_pengguna;
             data_mahasiswa = data_akun_pengguna.getAttributes();
 
             this.setDataAkun();
             this.init();
             this.isiComboBox();
+            this.cekDataPenerimaan();
+        }
+
+        private void cekDataPenerimaan()
+        {
+            object[] dataPenerimaan = c_TambahKonversiSks.getDataPenerimaanByIdMhs((int)data_mahasiswa[0]);
+            bool available = false;
+
+            foreach (var item in dataPenerimaan)
+            {
+                if(item != null)
+                {
+                    available = true;
+                } else
+                {
+                    break;
+                }
+            }
+
+            if (!available)
+            {
+                tbx_kompetensikonversisks.Enabled = false;
+                tbx_keterangankonversisks.Enabled = false;
+                cbx_matkulygdikonversi.Enabled = false;
+                btn_simpankonversisks.Enabled = false;
+                lnk_carimatkulkonversisks.LinkClicked -= linkLabel1_LinkClicked;
+                lnk_carimatkulkonversisks.LinkClicked += linkLabel2_LinkClicked;
+            } else
+            {
+                tbx_kompetensikonversisks.Enabled = true;
+                tbx_keterangankonversisks.Enabled = true;
+                cbx_matkulygdikonversi.Enabled = true;
+                btn_simpankonversisks.Enabled = true;
+            }
         }
 
         private void setDataAkun()
@@ -64,7 +96,7 @@ namespace Baskom.View
         {
             tbl_matkulkonversisks.Rows.Clear();
 
-            this.list_konversi_sks = this.c_KonversiSks.initDataGridView((int)data_mahasiswa[0]);
+            this.list_konversi_sks = this.c_TambahKonversiSks.initDataGridView((int)data_mahasiswa[0]);
 
             List<int> list_idmatkul = new List<int>();
 
@@ -73,7 +105,7 @@ namespace Baskom.View
                 list_idmatkul.Add((int)item_konversi[4]);
             }
 
-            this.list_data_sks = this.c_KonversiSks.getMatkulSKS(list_idmatkul);
+            this.list_data_sks = this.c_TambahKonversiSks.getMatkulSKS(list_idmatkul);
 
             int i = 0;
             foreach (object[] item in list_data_sks)
@@ -95,7 +127,7 @@ namespace Baskom.View
             cbx_matkulygdikonversi.Items.Clear();
             cbx_matkulygdikonversi.ResetText();
 
-            List<object[]> list_non_matkul_tempuh = c_KonversiSks.getAllNonMatkulTempuh((int)data_mahasiswa[0]);
+            List<object[]> list_non_matkul_tempuh = c_TambahKonversiSks.getAllNonMatkulTempuh((int)data_mahasiswa[0]);
             List<object[]> list_non_matkul_tempuh2 = list_non_matkul_tempuh;
 
             foreach (object[] item in list_data_sks)
@@ -115,6 +147,7 @@ namespace Baskom.View
             }
         }
 
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -124,17 +157,6 @@ namespace Baskom.View
         {
 
         }
-
-        private void tbl_matkulkonversisks_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 4)
@@ -148,17 +170,27 @@ namespace Baskom.View
                     int id_mahasiswa = (int)data_mahasiswa[0];
                     int id_matkul = (int)list_konversi_sks[e.RowIndex][4];
 
-                    c_KonversiSks.hapusDataSKS(id_mahasiswa, id_matkul);
+                    c_TambahKonversiSks.hapusDataSKS(id_mahasiswa, id_matkul);
                     this.init();
                     this.isiComboBox();
                 }
             }
         }
 
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
             c_Dashboard.setLihatMataKuliahProgram();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Data Penerimaan Belum Diinputkan!");
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -227,7 +259,7 @@ namespace Baskom.View
         private void statusMOAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            c_Dashboard.setStatusMOA();
+            c_Dashboard.setPengajuanMOA();
         }
 
         private void konversiNilaiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -270,7 +302,7 @@ namespace Baskom.View
             {
                 string message = "Isi Kolom Kompetensi!";
                 MessageBox.Show(message);
-            } 
+            }
             else if (tbx_keterangankonversisks.Text == "")
             {
                 string message = "Isi Kolom Keterangan!";
@@ -283,7 +315,7 @@ namespace Baskom.View
             }
             else
             {
-                List<object[]> list_non_matkul_tempuh = c_KonversiSks.getAllNonMatkulTempuh((int)data_mahasiswa[0]);
+                List<object[]> list_non_matkul_tempuh = c_TambahKonversiSks.getAllNonMatkulTempuh((int)data_mahasiswa[0]);
                 foreach (object[] item in list_non_matkul_tempuh)
                 {
                     if (item[2].ToString() == matkulDipilih.ToString())
@@ -296,11 +328,12 @@ namespace Baskom.View
                             konversiSksBaru[3] = (int)item[0];
                             konversiSksBaru[4] = (int)data_mahasiswa[0];
 
-                            c_KonversiSks.tambahKonversiSks(konversiSksBaru);
+                            c_TambahKonversiSks.tambahKonversiSks(konversiSksBaru);
 
                             this.init();
                             this.isiComboBox();
-                        } else
+                        }
+                        else
                         {
                             MessageBox.Show($"Sisa SKS = {sisa_sks}, tidak dapat mengambil {item[2]} dengan SKS = {item[3]}");
                         }
@@ -311,7 +344,7 @@ namespace Baskom.View
 
         private int hitungSisaSKS()
         {
-            jumlah_sks = c_KonversiSks.getJumlahMaksSKS((int)data_mahasiswa[0]);
+            jumlah_sks = c_TambahKonversiSks.getJumlahMaksSKS((int)data_mahasiswa[0]);
 
             foreach (object[] item in list_data_sks)
             {

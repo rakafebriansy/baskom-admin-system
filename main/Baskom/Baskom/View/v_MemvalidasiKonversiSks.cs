@@ -77,9 +77,9 @@ namespace Baskom.View
             string nama_mhs = (string)dataGridView1.Rows[index].Cells[0].Value;
             string nim = (string)dataGridView1.Rows[index].Cells[1].Value;
             string nama_mitra = (string)dataGridView1.Rows[index].Cells[3].Value;
-            if (e.ColumnIndex == 5) 
+            if (e.ColumnIndex == 5)
             {
-                c_Dashboard.setDetailValidasiKonversiSks(nama_mhs,nim,nama_mitra);
+                c_Dashboard.setDetailValidasiKonversiSks(nama_mhs, nim, nama_mitra);
             }
         }
 

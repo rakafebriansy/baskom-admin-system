@@ -13,11 +13,11 @@ namespace Baskom.Controller
         m_DataMataKuliahTempuh m_DataMataKuliahTempuh;
         m_DataKonversiSks m_DataKonversiSks;
 
-        public c_TambahMataKuliahTempuh(m_DataMataKuliah m_DataMataKuliah, m_DataMataKuliahTempuh m_DataMataKuliahTempuh, m_DataKonversiSks dataKonversiSks)
+        public c_TambahMataKuliahTempuh(m_DataMataKuliah m_DataMataKuliah, m_DataMataKuliahTempuh m_DataMataKuliahTempuh, m_DataKonversiSks m_DataKonversiSks)
         {
             this.m_DataMataKuliah = m_DataMataKuliah;
             this.m_DataMataKuliahTempuh = m_DataMataKuliahTempuh;
-            this.m_DataKonversiSks = dataKonversiSks;
+            this.m_DataKonversiSks = m_DataKonversiSks;
         }
 
         public List<object[]> initDataGridView(int id_mahasiswa)
@@ -46,9 +46,20 @@ namespace Baskom.Controller
             return result;
         }
 
+        public object[] getMatkulByKode(string kode_matkul)
+        {
+            object[] result = this.m_DataMataKuliah.getMataKuliahByKode(kode_matkul);
+            return result;
+        }
+
         public void tambahMataKuliahTempuh(object[] matkul)
         {
             m_DataMataKuliahTempuh.sendMatkulByIdMahasiswa((int)matkul[0], (int)matkul[1]);
+        }
+
+        public void hapusDataMatkulTempuh(int id_mahasiswa, int id_matkul)
+        {
+            this.m_DataMataKuliahTempuh.hapusMataKuliah(id_mahasiswa, id_matkul);
         }
     }
 }

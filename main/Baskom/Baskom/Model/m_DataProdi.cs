@@ -25,6 +25,17 @@ namespace Baskom.Model
             }
             reader.Close();
             return result;
+        }       
+        public List<string> getAllNamaProdi()
+        {
+            List<string> result = new List<string>();
+            NpgsqlDataReader reader = Database.Database.getData($"SELECT nama_prodi FROM \"Data_Prodi\";");
+            while (reader.Read())
+            {
+                result.Add((string)reader[0]);
+            }
+            reader.Close();
+            return result;
         }
         public string getNamaProdiById(int id_prodi)
         {

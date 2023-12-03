@@ -12,15 +12,35 @@ namespace Baskom.Controller
         private m_DataAkunMahasiswa m_DataAkunMahasiswa;
         private m_DataProdi m_DataProdi;
         private m_DataAkunTimmbkm m_DataAkunTimmbkm;
-        public c_TambahMahasiswa(m_DataAkunMahasiswa m_DataAkunMahasiswa,m_DataProdi m_DataProdi, m_DataAkunTimmbkm m_DataAkunTimmbkm)
+        private m_DataAkunDosen m_DataAkunDosen;
+        private m_DataPembagianTugas m_DataPembagianTugas;
+        public c_TambahMahasiswa(m_DataAkunMahasiswa m_DataAkunMahasiswa,m_DataProdi m_DataProdi, m_DataAkunTimmbkm m_DataAkunTimmbkm, m_DataAkunDosen m_DataAkunDosen, m_DataPembagianTugas m_DataPembagianTugas)
         {
             this.m_DataAkunMahasiswa = m_DataAkunMahasiswa;
             this.m_DataProdi = m_DataProdi;
             this.m_DataAkunTimmbkm = m_DataAkunTimmbkm;
+            this.m_DataAkunDosen = m_DataAkunDosen;
+            this.m_DataPembagianTugas = m_DataPembagianTugas;
         }
 
-        public string tambahMahasiswaBaru(object[] mahasiswa)
+        public List<string> initProdi()
         {
+            return m_DataProdi.getAllNamaProdi();
+        }
+        public List<string> initNamaTimmbkm()
+        {
+            List<string> list_nama_timmbkm = new List<string>();
+            List<object[]> timmbkm = m_DataAkunTimmbkm.getAllTimmbkm();
+            foreach (object[] t in timmbkm)
+            {
+                object[] nama_dosen = m_DataAkunDosen.getDosenById((int)t[2]);
+                list_nama_timmbkm.Add((string)nama_dosen[3]);
+            }
+            return list_nama_timmbkm;
+        }
+        public string tambahMahasiswaBaru(object[] mhs)
+        {
+            object[] mahasiswa = mhs;
             List<object[]> data_mahasiswa = this.m_DataAkunMahasiswa.getAllMahasiswa();
             string message = "";
             foreach (object[] item in data_mahasiswa)
@@ -43,8 +63,13 @@ namespace Baskom.Controller
             }
             int id_prodi = m_DataProdi.getIdProdiByNama((string)mahasiswa[8]);
             mahasiswa[8] = id_prodi;
-            List<object[]> data_timmbkm = m_DataAkunTimmbkm.getAllTimmbkm();
-            m_DataAkunMahasiswa.sendMahasiswa(mahasiswa,data_timmbkm);
+            this.m_DataAkunMahasiswa.sendMahasiswa(mahasiswa);
+
+            object[] dosen = m_DataAkunDosen.getDosenByNama((string)mahasiswa[9]);
+            object[] timmbkm = m_DataAkunTimmbkm.getTimmbkmByNidn((string)dosen[2]);
+            mahasiswa = this.m_DataAkunMahasiswa.getMahasiswaByNim((string)mahasiswa[0]);
+            this.m_DataPembagianTugas.sendPembagianTugas((int)mahasiswa[0], (int)timmbkm[0]);
+            message = "Data Mahasiswa Berhasil Ditambahkan!";
             return message;
         }
     }

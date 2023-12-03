@@ -43,15 +43,13 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
-        public void updateStatusPengajuanMitra(int id_status, int id_dataPengajuan)
-        {
-            string query = $"UPDATE \"Data_Pengajuan_Mitra\" SET id_status_validasi = {id_status} WHERE id_pengajuan = {id_dataPengajuan}";
-            Database.Database.sendData(query);
-        }
         public void sendPengajuan(object[] pengajuan_mitra)
         {
-            string query = $"INSERT INTO \"Data_Pengajuan_Mitra\" (nama_mitra, deskripsi_mitra, status_validasi, id_mahasiswa) VALUES ('{pengajuan_mitra[0]}', '{pengajuan_mitra[1]}', {pengajuan_mitra[2]}, {pengajuan_mitra[3]});";
-            Database.Database.sendData(query);
+            Database.Database.sendData($"INSERT INTO \"Data_Pengajuan_Mitra\" (nama_mitra, deskripsi_mitra, id_status_validasi, id_mahasiswa) VALUES ('{pengajuan_mitra[0]}', '{pengajuan_mitra[1]}', {pengajuan_mitra[2]}, {pengajuan_mitra[3]});");
+        }
+        public void updateStatusValidasi(int id_status_validasi, int id_pengajuan)
+        {
+            Database.Database.sendData($"UPDATE \"Data_Pengajuan_Mitra\" SET id_status_validasi = {id_status_validasi} WHERE id_pengajuan = {id_pengajuan}");
         }
     }
 }

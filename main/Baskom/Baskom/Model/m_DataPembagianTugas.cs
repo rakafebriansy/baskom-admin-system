@@ -39,5 +39,25 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
+
+        public object[] getPembagianTugasByIdTimmbkm(int id_timmbkm)
+        {
+            NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Pembagian_Tugas\" WHERE id_timmbkm = {id_timmbkm}");
+            int field_count = reader.FieldCount;
+            object[] result = new object[field_count];
+            while (reader.Read())
+            {
+                result[0] = reader[0];
+                result[1] = reader[1];
+                result[2] = reader[2];
+            }
+            reader.Close();
+            return result;
+        }
+
+        public void sendPembagianTugas(int id_mahasiswa, int id_timmbkm)
+        {
+            Database.Database.sendData($"INSERT INTO \"Data_Pembagian_Tugas\" (id_mahasiswa, id_timmbkm) VALUES ({id_mahasiswa}, {id_timmbkm});");
+        }
     }
 }

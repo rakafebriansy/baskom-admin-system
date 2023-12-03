@@ -46,13 +46,20 @@
             label1 = new Label();
             btn_tambahdaftarmhsadmin = new Button();
             tbl_daftarmhsadmin = new DataGridView();
+            pictureBox4 = new PictureBox();
+            panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
-            PIC = new DataGridViewComboBoxColumn();
+            PIC = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewButtonColumn();
             panel1.SuspendLayout();
             msp_navadminmhs.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbl_daftarmhsadmin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -60,9 +67,8 @@
             panel1.Controls.Add(msp_navadminmhs);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1924, 52);
+            panel1.Size = new Size(1184, 33);
             panel1.TabIndex = 1;
             // 
             // msp_navadminmhs
@@ -73,14 +79,14 @@
             msp_navadminmhs.Location = new Point(0, 0);
             msp_navadminmhs.Name = "msp_navadminmhs";
             msp_navadminmhs.Padding = new Padding(0);
-            msp_navadminmhs.Size = new Size(1924, 33);
+            msp_navadminmhs.Size = new Size(1184, 24);
             msp_navadminmhs.TabIndex = 0;
             msp_navadminmhs.Text = "menuStrip1";
             // 
             // dashboardToolStripMenuItem
             // 
             dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            dashboardToolStripMenuItem.Size = new Size(151, 33);
+            dashboardToolStripMenuItem.Size = new Size(95, 24);
             dashboardToolStripMenuItem.Text = "Dashboard";
             dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
             // 
@@ -88,20 +94,21 @@
             // 
             managemenAkunToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { akunDosenToolStripMenuItem, akunToolStripMenuItem });
             managemenAkunToolStripMenuItem.Name = "managemenAkunToolStripMenuItem";
-            managemenAkunToolStripMenuItem.Size = new Size(226, 33);
+            managemenAkunToolStripMenuItem.Size = new Size(141, 24);
             managemenAkunToolStripMenuItem.Text = "Managemen Akun";
+            managemenAkunToolStripMenuItem.Click += managemenAkunToolStripMenuItem_Click;
             // 
             // akunDosenToolStripMenuItem
             // 
             akunDosenToolStripMenuItem.Name = "akunDosenToolStripMenuItem";
-            akunDosenToolStripMenuItem.Size = new Size(324, 44);
+            akunDosenToolStripMenuItem.Size = new Size(202, 26);
             akunDosenToolStripMenuItem.Text = "Akun Dosen";
             akunDosenToolStripMenuItem.Click += akunDosenToolStripMenuItem_Click;
             // 
             // akunToolStripMenuItem
             // 
             akunToolStripMenuItem.Name = "akunToolStripMenuItem";
-            akunToolStripMenuItem.Size = new Size(324, 44);
+            akunToolStripMenuItem.Size = new Size(202, 26);
             akunToolStripMenuItem.Text = "Akun Mahasiswa";
             akunToolStripMenuItem.Click += akunToolStripMenuItem_Click;
             // 
@@ -109,28 +116,28 @@
             // 
             mitraToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tambahMitraProgramToolStripMenuItem, tambahProgramMataKuliahToolStripMenuItem });
             mitraToolStripMenuItem.Name = "mitraToolStripMenuItem";
-            mitraToolStripMenuItem.Size = new Size(86, 33);
+            mitraToolStripMenuItem.Size = new Size(55, 24);
             mitraToolStripMenuItem.Text = "Mitra";
             mitraToolStripMenuItem.Click += mitraToolStripMenuItem_Click;
             // 
             // tambahMitraProgramToolStripMenuItem
             // 
             tambahMitraProgramToolStripMenuItem.Name = "tambahMitraProgramToolStripMenuItem";
-            tambahMitraProgramToolStripMenuItem.Size = new Size(464, 44);
+            tambahMitraProgramToolStripMenuItem.Size = new Size(287, 26);
             tambahMitraProgramToolStripMenuItem.Text = "Tambah Mitra Program";
             tambahMitraProgramToolStripMenuItem.Click += tambahMitraProgramToolStripMenuItem_Click;
             // 
             // tambahProgramMataKuliahToolStripMenuItem
             // 
             tambahProgramMataKuliahToolStripMenuItem.Name = "tambahProgramMataKuliahToolStripMenuItem";
-            tambahProgramMataKuliahToolStripMenuItem.Size = new Size(464, 44);
+            tambahProgramMataKuliahToolStripMenuItem.Size = new Size(287, 26);
             tambahProgramMataKuliahToolStripMenuItem.Text = "Tambah Program Mata Kuliah";
             tambahProgramMataKuliahToolStripMenuItem.Click += tambahProgramMataKuliahToolStripMenuItem_Click;
             // 
             // mataKuliahToolStripMenuItem
             // 
             mataKuliahToolStripMenuItem.Name = "mataKuliahToolStripMenuItem";
-            mataKuliahToolStripMenuItem.Size = new Size(158, 33);
+            mataKuliahToolStripMenuItem.Size = new Size(99, 24);
             mataKuliahToolStripMenuItem.Text = "Mata Kuliah";
             mataKuliahToolStripMenuItem.Click += mataKuliahToolStripMenuItem_Click;
             // 
@@ -138,30 +145,29 @@
             // 
             profileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { informasiAkunToolStripMenuItem, logoutToolStripMenuItem });
             profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            profileToolStripMenuItem.Size = new Size(103, 33);
+            profileToolStripMenuItem.Size = new Size(64, 24);
             profileToolStripMenuItem.Text = "Profile";
             // 
             // informasiAkunToolStripMenuItem
             // 
             informasiAkunToolStripMenuItem.Name = "informasiAkunToolStripMenuItem";
-            informasiAkunToolStripMenuItem.Size = new Size(302, 44);
+            informasiAkunToolStripMenuItem.Size = new Size(188, 26);
             informasiAkunToolStripMenuItem.Text = "Informasi Akun";
             informasiAkunToolStripMenuItem.Click += informasiAkunToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(302, 44);
+            logoutToolStripMenuItem.Size = new Size(188, 26);
             logoutToolStripMenuItem.Text = "Logout";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // panel4
             // 
             panel4.Controls.Add(label1);
-            panel4.Location = new Point(39, 177);
-            panel4.Margin = new Padding(5);
+            panel4.Location = new Point(24, 110);
             panel4.Name = "panel4";
-            panel4.Size = new Size(400, 70);
+            panel4.Size = new Size(246, 44);
             panel4.TabIndex = 7;
             // 
             // label1
@@ -169,9 +175,8 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(0, 1);
-            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(333, 42);
+            label1.Size = new Size(218, 29);
             label1.TabIndex = 0;
             label1.Text = "Daftar Mahasiswa";
             label1.Click += label1_Click;
@@ -182,12 +187,11 @@
             btn_tambahdaftarmhsadmin.BackColor = SystemColors.Highlight;
             btn_tambahdaftarmhsadmin.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
             btn_tambahdaftarmhsadmin.ForeColor = SystemColors.ControlLightLight;
-            btn_tambahdaftarmhsadmin.Location = new Point(1617, 954);
-            btn_tambahdaftarmhsadmin.Margin = new Padding(5);
+            btn_tambahdaftarmhsadmin.Location = new Point(995, 596);
             btn_tambahdaftarmhsadmin.Name = "btn_tambahdaftarmhsadmin";
-            btn_tambahdaftarmhsadmin.Size = new Size(260, 56);
+            btn_tambahdaftarmhsadmin.Size = new Size(160, 35);
             btn_tambahdaftarmhsadmin.TabIndex = 9;
-            btn_tambahdaftarmhsadmin.Text = "Simpan";
+            btn_tambahdaftarmhsadmin.Text = "Tambah";
             btn_tambahdaftarmhsadmin.UseVisualStyleBackColor = false;
             btn_tambahdaftarmhsadmin.Click += btn_tambahdaftarmhsadmin_Click;
             // 
@@ -196,15 +200,43 @@
             tbl_daftarmhsadmin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbl_daftarmhsadmin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbl_daftarmhsadmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tbl_daftarmhsadmin.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, PIC });
-            tbl_daftarmhsadmin.Location = new Point(39, 306);
-            tbl_daftarmhsadmin.Margin = new Padding(5);
+            tbl_daftarmhsadmin.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, PIC, Column3 });
+            tbl_daftarmhsadmin.Location = new Point(24, 191);
             tbl_daftarmhsadmin.Name = "tbl_daftarmhsadmin";
             tbl_daftarmhsadmin.RowHeadersWidth = 51;
             tbl_daftarmhsadmin.RowTemplate.Height = 29;
-            tbl_daftarmhsadmin.Size = new Size(1838, 607);
+            tbl_daftarmhsadmin.Size = new Size(1131, 379);
             tbl_daftarmhsadmin.TabIndex = 8;
             tbl_daftarmhsadmin.CellContentClick += tbl_daftarmhsadmin_CellContentClick;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(-23, 582);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(154, 197);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 18;
+            pictureBox4.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel2.Controls.Add(pictureBox1);
+            panel2.Location = new Point(1062, 25);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(147, 125);
+            panel2.TabIndex = 19;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(139, 138);
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
             // 
             // Column1
             // 
@@ -226,19 +258,27 @@
             PIC.MinimumWidth = 6;
             PIC.Name = "PIC";
             PIC.Resizable = DataGridViewTriState.True;
-            PIC.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Detail Mahasiswa";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Text = "Lihat";
+            Column3.UseColumnTextForButtonValue = true;
             // 
             // v_DataMahasiswa
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 1050);
+            ClientSize = new Size(1184, 656);
+            Controls.Add(panel2);
+            Controls.Add(pictureBox4);
             Controls.Add(btn_tambahdaftarmhsadmin);
             Controls.Add(tbl_daftarmhsadmin);
             Controls.Add(panel4);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(5);
             Name = "v_DataMahasiswa";
             Text = "Baskom";
             WindowState = FormWindowState.Maximized;
@@ -249,6 +289,9 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)tbl_daftarmhsadmin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -271,8 +314,12 @@
         private ToolStripMenuItem mataKuliahToolStripMenuItem;
         private ToolStripMenuItem tambahMitraProgramToolStripMenuItem;
         private ToolStripMenuItem tambahProgramMataKuliahToolStripMenuItem;
+        private PictureBox pictureBox4;
+        private Panel panel2;
+        private PictureBox pictureBox1;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
-        private DataGridViewComboBoxColumn PIC;
+        private DataGridViewTextBoxColumn PIC;
+        private DataGridViewButtonColumn Column3;
     }
 }

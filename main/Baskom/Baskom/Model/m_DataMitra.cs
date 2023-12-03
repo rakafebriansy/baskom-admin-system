@@ -20,7 +20,6 @@ namespace Baskom.Model
                 field_values[0] = reader[0];
                 field_values[1] = reader[1];
                 field_values[2] = reader[2];
-                field_values[3] = reader[3];
                 result.Add(field_values);
             }
             reader.Close();
@@ -36,7 +35,6 @@ namespace Baskom.Model
                 result[0] = reader[0];
                 result[1] = reader[1];
                 result[2] = reader[2];
-                result[3] = reader[3];
             }
             reader.Close();
             return result;
@@ -51,7 +49,6 @@ namespace Baskom.Model
                 result[0] = reader[0];
                 result[1] = reader[1];
                 result[2] = reader[2];
-                result[3] = reader[3];
             }
             reader.Close();
             return result;

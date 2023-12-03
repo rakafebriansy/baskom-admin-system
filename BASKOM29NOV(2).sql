@@ -7,8 +7,7 @@ CREATE TABLE "Data_BKP"(
 CREATE TABLE "Data_Mitra"(
 	id_mitra serial primary key NOT NULL,
     nama_mitra varchar(255) UNIQUE NOT NULL,
-    deskripsi_mitra text NOT NULL,
-	id_bkp int REFERENCES "Data_BKP"(id_bkp) NOT NULL
+    deskripsi_mitra text NOT NULL
 );
 
 CREATE TABLE "Data_Program"(
@@ -218,20 +217,6 @@ VALUES ('196909281993021001', '0028096909', 'Antonius Cahya Prihandoko', '081234
 SELECT * FROM "Data_Akun_Dosen";
 
 
-INSERT INTO "Data_Detail_Mitra"(id_program, id_mitra)
-VALUES (1, 2),
-(2, 3),
-(3, 7),
-(4, 10),
-(5, 9),
-(6, 5),
-(7, 8),
-(8, 4),
-(9, 1),
-(10, 6);
-SELECT * FROM "Data_Detail_Mitra";
-
-
 INSERT INTO "Data_Detail_Program" (id_matkul, id_program) 
 VALUES (1, 4), 
 (2, 7),
@@ -264,76 +249,6 @@ VALUES ('222410101005','Ayu Qomariya Putri Edyta',2022,1,'085853850540',1,'22241
 ('222410101050','Raka Febrian Syahputra',2022,1,'081233405169',1,'222410101050@mail.unej.ac.id','Raka_1050',1),
 ('222410101051','Nadilia Dwi Oktavia',2022,1,'082236685213',1,'222410101051@mail.unej.ac.id','Nadilia_1051',1);
 SELECT * FROM "Data_Akun_Mahasiswa";
-
-INSERT INTO "Data_Mata_Kuliah_Tempuh"(id_matkul, id_mahasiswa)
-VALUES (3, 4),
-(5, 6),
-(7, 8),
-(9, 9),
-(3, 10),
-(8, 2),
-(10, 1),
-(4, 8),
-(9, 3),
-(10, 4);
-SELECT * FROM "Data_Mata_Kuliah_Tempuh";
-
-
-INSERT INTO "Data_Konversi_SKS"(kompetensi, deskripsi_kompetensi, status_validasi, id_matkul, id_mahasiswa)
-VALUES ('Proyek Kolaborasi', 'Mampu mengelola proyek yang ditugaskan kepada pemagang secara kelompok', 0, 7,10),
-('Perencanaan Proyek Riset', 'Mampu membuat rancangan proyek riset yang sesuai dengan permasalahan yang dialami di Bukit Vista', 0, 6, 9),
-('Programming', 'Menguasai programming menggunakan Python, mySQL', 0,2, 7),
-('Pengelolaan Klien', 'Mampu memenuhi permintaan klien atas proyek yang dipegang', 0,4, 6),
-('Realisasi dan Pengelolaan Proyek', 'Mampu mengeksekusikan rencana proyek yang sebelumnya direncanakan dengan baik', 0,3, 5),
-('UI/UX', 'Mampu menerapkan UI/UX pada project rill industri yang dibuuktikan dengan Sertifikasi Internasional', 0,1, 4),
-('Digital Marketing', 'Mengenal pemasaran digital, mampu membuat pemasaran digital dengan tools digital yang dibuktikan dengan Sertifikasi Internasional', 0,9, 3),
-('Design Principle', 'Mampu membuat desain menarik sesuai dengan prinsip desain yang dibuktikan dengan Sertifikasi Internasional', 0,5, 2),
-('Content Creator', 'Mampu membuat Content dan writer untuk berbagai media dan produk yang dibuktikan dengan Sertifikasi Internasional', 0,8, 1),
-('Bisnis Digital', 'Mengenal bisnis digital atau industri startup yang eksis di Indonesia, Mengenal trend bisnis startup dunia Mampu menganalisa bisnis startup yang dibuktikan dengan Sertifikasi Internasional', 0,4, 2);
-SELECT * FROM "Data_Konversi_SKS";
-
-
-INSERT INTO "Data_Konversi_Nilai"(nilai, file_laporan_akhir, status_validasi,id_konversi_sks)
-VALUES (20,'https://kampusmerdeka.kemdikbud.go.id/',0,1),
-(30,'https://pusatinformasi.kampusmerdeka.kemdikbud.go.id',1,2),
-(18,'https://grow.google/intl/id_id/bangkit/?tab=machine-learning',1,3),
-(87,'https://kampusmerdeka.kemdikbud.go.id/program',0,4),
-(76,'https://kampusmerdeka.kemdikbud.go.id/program/mengajar',1,5),
-(33,'https://kampusmerdeka.kemdikbud.go.id/program/magang/detail',1,6),
-(90,'https://kampusmerdeka.kemdikbud.go.id/program/studi-independen/detail',1,7),
-(67,'https://pmm.kampusmerdeka.kemdikbud.go.id/pages/info/program/pmm_4/',1,8),
-(56,'https://wirausahamerdeka.kampusmerdeka.kemdikbud.go.id/info/',1,9),
-(82,'https://praktisimengajar.id/',0,9);
-SELECT * FROM "Data_Konversi_Nilai";
-
-
-INSERT INTO "Data_Pengajuan_Mitra" (nama_mitra,deskripsi_mitra,id_status_validasi,id_mahasiswa)
-VALUES ('PT Hacktivate Teknologi Indonesia (Hacktiv8)','PT Hacktivate Teknologi Indonesia (Hacktiv8) adalah sebuah Lembaga Pendidikan dan Pelatihan bidang teknologi yang telah berdiri sejak tahun 2016, yang dibangun oleh Ronald Ishak dan Riza Fahmi',1,1),
-('PT BISA ARTIFISIAL INDONESIA','PT. Bisa Artifisial Indonesia (BISA AI) merupakan perusahaan yang bergerak dibidang IT khususnya pada pengembangan Artificial Intelligence',1,2),
-('Binakarir (PT Care Indonesia Solusi)','Binakarir (PT Care Indonesia Solusi) adalah perusahaan yang bergerak di bidang konsultan HRD, yang berlokasi di Bandung. Kami unggul dalam mengembangkan asesmen online dan inovasi layanan lainnya dalam asesmen psikologis dan sumber daya manusia',1,3),
-('PT Mitra Integrasi Informatika (Metrodata Academy)','PT Mitra Integrasi Informatika (Metrodata Academy) adalah  perusahaan Teknologi Informasi terbesar di Indonesia berkomitmen ikut serta dalam mencerdaskan kehidupan bangsa, khususnya pengembangan potensi talenta digital, baik untuk IT Professional maupun mahasiswa',1,4),
-('PT. Trisakti Pilar Persada','PT. Trisakti Pilar Persada adalah perusahaan yang bergerak pada bidang Kajian Kebijakan, Perancangan Pembangunan, Media Literasi, Pengembangan SDM dan Jasa survey',1,5),
-('PT GITS Indonesia','PT GITS Indonesia adalah perusahan yang bergerak dalam bidang pengembangan aplikasi android',1,6),
-('PT Orbit Ventura Indonesia','PT Orbit Ventura Indonesia (OVI) telah didirikan pada tahun 2015 untuk memfasilitasi pemahaman yang lebih baik tentang bagaimana ilmu pengetahuan dan teknologi dapat meningkatkan kehidupan negara berkembang',1,7),
-('PT Widya Inovasi Indonesia','PT Widya Inovasi Indonesia adalah perusahaan Informasi dan Teknologi yang fokus menghadirkan teknologi masa depan',1,8),
-('PT Ruang Raya Indonesia (Ruang Guru)','PT Ruang Raya Indonesia (Ruang Guru) adalah sebuah perusahaan rintisan digital asal Indonesia yang bergerak di bidang pendidikan nonformal',1,9),
-('PT Zona Edukasi Nusantara (Zenius)','PT Zona Edukasi Nusantara (Zenius Education) adalah perusahaan pendidikan berbasis teknologi asal Indonesia',1,10);
-SELECT * FROM "Data_Pengajuan_Mitra";
-
-
-INSERT INTO "Data_Penerimaan_Mitra" (status_pkl, no_wa, jumlah_sks, bukti_penerimaan, id_bkp, id_mitra, id_dosen, id_mahasiswa, id_program)
-VALUES (1, '085854606084', '20', 'linkbukti', 1, 2, 4, 3, 1),
-(1, '083456789034', '20', 'linkbukti', 2, 2, 4, 7, 2),
-(0, '081234567834', '20', 'linkbukti', 3, 3, 2, 8, 3),
-(1, '086783459023', '20', 'linkbukti', 4, 6, 4, 5, 4),
-(0, '083245678234', '20', 'linkbukti', 5, 2, 10, 6, 5),
-(1, '085234721478', '20', 'linkbukti', 6, 5, 7, 4, 6),
-(1, '089754673456', '20', 'linkbukti', 7, 7, 4, 9, 7),
-(1, '087865227430', '20', 'linkbukti', 8, 2, 6, 2, 8),
-(0, '086789045678', '20', 'linkbukti', 1, 3, 7, 1, 9),
-(1, '086543890234', '20', 'linkbukti', 2, 3, 6, 10, 10);
-SELECT * FROM "Data_Penerimaan_Mitra";
-
 
 INSERT INTO "Data_Pembagian_Tugas"(id_mahasiswa, id_timmbkm)
 VALUES (1,1),(2,2),(3,1),(4,1),(5,2),(6,1),(7,2),(8,1),(9,1),(10,2);

@@ -142,14 +142,26 @@ namespace Baskom.View
 
         private void btn_tambah_Click(object sender, EventArgs e)
         {
-            string message = c_TambahMitraProgam.tambahDetailMitraBaru(cbx_program.Text, cbx_namamitra.Text); ;
-            if (message.Length > 0)
+            string message = "";
+
+            object program = cbx_program.SelectedItem;
+            object programDipilih = cbx_program.GetItemText(program);
+
+            if (programDipilih.ToString() == "")
             {
+                message = "Pilih Program Yang Tersedia!";
                 MessageBox.Show(message);
-            }
-            else
+            } else
             {
-                this.init();
+                message = c_TambahMitraProgam.tambahDetailMitraBaru(cbx_program.Text, cbx_namamitra.Text); ;
+                if (message.Length > 0)
+                {
+                    MessageBox.Show(message);
+                }
+                else
+                {
+                    this.init();
+                }
             }
         }
 

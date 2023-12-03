@@ -24,6 +24,7 @@ namespace Baskom.View
         {
             InitializeComponent();
             this.c_Dashboard = c_Dashboard;
+            this.c_Dashboard = c_Dashboard;
             this.c_PenerimaanMitra = new c_PenerimaanMitra(m_DataBkp, m_DataAkunDosen, m_DataMitra, m_DataPenerimaanMitra, m_DataProgram, m_DataDetailMitra);
             this.data_akun_pengguna = data_akun_pengguna;
             data_mahasiswa = data_akun_pengguna.getAttributes();
@@ -34,7 +35,7 @@ namespace Baskom.View
         {
             List<object[]> data_penerimaan = c_PenerimaanMitra.getAllPenerimaanMitra();
 
-            object[] mitra_mahasiswa = new object[9];
+            object[] mitra_mahasiswa = new object[10];
             foreach (object[] item in data_penerimaan)
             {
                 if ((int)item[8] == (int)data_mahasiswa[0])
@@ -51,19 +52,15 @@ namespace Baskom.View
                 cbx_dpa.Enabled = false;
                 cbx_mitra.Enabled = false;
                 cbx_pkl.Enabled = false;
-                cmbprogrampengajuanmitra.Enabled = false;
                 tbx_nowa.Enabled = false;
                 tbx_bukti.Enabled = false;
                 tbx_sks.Enabled = false;
+                cmbprogrampengajuanmitra.Enabled = false;
 
-                object[] data_bkp = c_PenerimaanMitra.getDataBKPbyId((int)mitra_mahasiswa[5]);
-                object[] data_mitra = c_PenerimaanMitra.getMitrabyId((int)mitra_mahasiswa[8]);
-                object[] data_dpa = c_PenerimaanMitra.getDPAbyId((int)mitra_mahasiswa[7]);
-                object[] data_program = c_PenerimaanMitra.getDataProgramById((int)mitra_mahasiswa[9]);
-                cbx_bkp.Text = (string)data_bkp[1];
-                cbx_dpa.Text = (string)data_dpa[3];
-                cbx_mitra.Text = (string)data_mitra[1];
-                cmbprogrampengajuanmitra.Text = (string)data_program[1];
+                cbx_bkp.Text = (string)c_PenerimaanMitra.getBkpById((int)mitra_mahasiswa[5])[1];
+                cbx_mitra.Text = (string)c_PenerimaanMitra.getMitraById((int)mitra_mahasiswa[6])[1];
+                cbx_dpa.Text = (string)c_PenerimaanMitra.getDPAById((int)mitra_mahasiswa[7])[3];
+                cmbprogrampengajuanmitra.Text = (string)c_PenerimaanMitra.getProgram((int)mitra_mahasiswa[9])[1];
 
                 if (Convert.ToInt32(mitra_mahasiswa[1]) == 0)
                 {
@@ -77,12 +74,14 @@ namespace Baskom.View
                 tbx_nowa.Text = (string)mitra_mahasiswa[2];
                 tbx_sks.Text = (string)mitra_mahasiswa[3];
                 tbx_bukti.Text = (string)mitra_mahasiswa[4];
+
             }
             else
             {
                 this.setComboBoxBKP();
                 this.setComboBoxDosen();
                 this.setComboBoxMitra();
+                this.setComboBoxProgram();
             }
         }
 
@@ -208,39 +207,39 @@ namespace Baskom.View
             }
             else
             {
-                object[] penerimaan_mitra = new object[9];
+                object[] penerimaan_mitra_baru = new object[9];
 
                 object bkp = cbx_bkp.SelectedItem;
                 object mitra = cbx_mitra.SelectedItem;
                 object dpa = cbx_dpa.SelectedItem;
                 object program = cmbprogrampengajuanmitra.SelectedItem;
 
-                object bkpDipilih = cbx_bkp.GetItemText(bkp);
-                object mitraDipilih = cbx_bkp.GetItemText(mitra);
-                object dpaDipilih = cbx_bkp.GetItemText(dpa);
-                object programDipilih = cmbprogrampengajuanmitra.GetItemText(program);
+                object bkp_dipilih = cbx_bkp.GetItemText(bkp);
+                object mitra_dipilih = cbx_bkp.GetItemText(mitra);
+                object dpa_dipilih = cbx_bkp.GetItemText(dpa);
+                object program_dipilih = cmbprogrampengajuanmitra.GetItemText(program);
 
-                if (programDipilih == "")
+                if (program_dipilih == "")
                 {
                     this.setComboBoxProgram();
                 }
 
-                if (bkpDipilih.ToString() == "")
+                if (bkp_dipilih.ToString() == "")
                 {
                     string message = "Pilih BKP Yang Tersedia!";
                     MessageBox.Show(message);
                 }
-                else if (mitraDipilih.ToString() == "")
+                else if (mitra_dipilih.ToString() == "")
                 {
                     string message = "Pilih Mitra Yang Tersedia!";
                     MessageBox.Show(message);
                 }
-                else if (dpaDipilih.ToString() == "")
+                else if (dpa_dipilih.ToString() == "")
                 {
                     string message = "Pilih DPA Yang Tersedia!";
                     MessageBox.Show(message);
                 }
-                else if (programDipilih.ToString() == "")
+                else if (program_dipilih.ToString() == "")
                 {
                     string message = "Pilih Program Yang Tersedia!";
                     MessageBox.Show(message);
@@ -255,29 +254,32 @@ namespace Baskom.View
                     string message = "Jumlah SKS Bernilai Angka!";
                     MessageBox.Show(message);
                 }
-                else if (int.Parse(tbx_sks.Text) > 20)
+                else if (tbx_sks.Text.Count() < 2 || tbx_nowa.Text.Count() > 20)
                 {
-                    string message = "Maksimal Konversi 20 SKS!";
+                    string message = "Minimal Konversi 2 SKS & Maksimal Konversi 20 SKS!";
                     MessageBox.Show(message);
                 }
-                else if (!char.IsDigit(tbx_nowa.Text.ToCharArray()[0]))
+                else if (tbx_nowa.Text == "")
                 {
-                    string message = "Nomor WA Bernilai Angka!";
+                    string message = "No Wa Mahasiswa Tidak Boleh Kosong!";
                     MessageBox.Show(message);
-
                 }
-                else if (tbx_nowa.Text.Count() > 13)
+                else if (tbx_nowa.Text.ToCharArray().Any(c => Char.IsLetter(c) || Char.IsWhiteSpace(c)))
                 {
-                    string message = "Nomor Melebihi Nilai Maksimal!";
+                    string message = "No Wa Hanya Berisi Angka!";
                     MessageBox.Show(message);
-
+                }
+                else if (tbx_nowa.Text.Count() < 11 || tbx_nowa.Text.Count() > 13)
+                {
+                    string message = "No Wa Harus Sesuai! (11-13 digit)";
+                    MessageBox.Show(message);
                 }
                 else
                 {
-                    penerimaan_mitra[0] = cbx_pkl.Checked;
-                    penerimaan_mitra[1] = tbx_nowa.Text;
-                    penerimaan_mitra[2] = tbx_sks.Text;
-                    penerimaan_mitra[3] = tbx_bukti.Text;
+                    penerimaan_mitra_baru[0] = cbx_pkl.Checked;
+                    penerimaan_mitra_baru[1] = tbx_nowa.Text;
+                    penerimaan_mitra_baru[2] = tbx_sks.Text;
+                    penerimaan_mitra_baru[3] = tbx_bukti.Text;
                     List<object[]> data_BKP = c_PenerimaanMitra.getAllDataBKP();
                     List<object[]> data_mitra = c_PenerimaanMitra.getAllDataMitra();
                     List<object[]> data_dosen = c_PenerimaanMitra.getAllDataDosen();
@@ -285,39 +287,39 @@ namespace Baskom.View
 
                     foreach (object[] item in data_BKP)
                     {
-                        if ((string)item[1] == (string)bkpDipilih)
+                        if ((string)item[1] == (string)bkp_dipilih)
                         {
-                            penerimaan_mitra[4] = item[0];
+                            penerimaan_mitra_baru[4] = item[0];
                         }
                     }
 
                     foreach (object[] item in data_mitra)
                     {
-                        if ((string)item[1] == (string)mitraDipilih)
+                        if ((string)item[1] == (string)mitra_dipilih)
                         {
-                            penerimaan_mitra[5] = item[0];
+                            penerimaan_mitra_baru[5] = item[0];
                         }
                     }
 
                     foreach (object[] item in data_dosen)
                     {
-                        if ((string)item[3] == (string)dpaDipilih)
+                        if ((string)item[3] == (string)dpa_dipilih)
                         {
-                            penerimaan_mitra[6] = item[0];
+                            penerimaan_mitra_baru[6] = item[0];
                         }
                     }
 
-                    penerimaan_mitra[7] = (int)data_mahasiswa[0];
+                    penerimaan_mitra_baru[7] = (int)data_mahasiswa[0];
 
                     foreach (object[] item in data_program)
                     {
-                        if ((string)item[1] == (string)programDipilih)
+                        if ((string)item[1] == (string)program_dipilih)
                         {
-                            penerimaan_mitra[8] = item[0];
+                            penerimaan_mitra_baru[8] = item[0];
                         }
                     }
 
-                    c_PenerimaanMitra.tambahPenerimaanMitra(penerimaan_mitra);
+                    c_PenerimaanMitra.tambahPenerimaanMitra(penerimaan_mitra_baru);
 
                     this.cekDiterimaBelum();
                 }
@@ -339,6 +341,21 @@ namespace Baskom.View
         {
 
         }
+
+
+        private void lbl_tambahmitra_Click_1(object sender, EventArgs e)
+        {
+            if (available)
+            {
+                MessageBox.Show("Datamu sudah terdaftar!");
+            }
+            else
+            {
+                this.Hide();
+                c_Dashboard.setPengajuanMOA();
+            }
+        }
+
 
         private void profilToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -369,7 +386,7 @@ namespace Baskom.View
         private void statusMitraToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            c_Dashboard.setStatusMOA();
+            c_Dashboard.setPengajuanMOA();
         }
 
         private void konversiNilaiToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -412,22 +429,15 @@ namespace Baskom.View
 
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+            c_Dashboard.setPengajuanMOA();
+        }
+
         private void cmbprogrampengajuanmitra_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (available)
-            {
-                MessageBox.Show("Datamu sudah terdaftar!");
-            }
-            else
-            {
-                this.Hide();
-                c_Dashboard.setTambahPengajuanMitra();
-            }
         }
     }
 }

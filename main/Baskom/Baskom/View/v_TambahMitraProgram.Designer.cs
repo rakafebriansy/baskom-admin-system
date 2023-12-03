@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(v_TambahMitraProgram));
             lyt_mitra = new TableLayoutPanel();
             panel1 = new Panel();
+            pictureBox5 = new PictureBox();
             cbx_namamitra = new ComboBox();
             btn_tambah = new Button();
             cbx_program = new ComboBox();
@@ -41,7 +42,6 @@
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             lbl_daftarprogrammitra = new Label();
-            btn_simpan = new Button();
             menuStrip2 = new MenuStrip();
             dashboardToolStripMenuItem1 = new ToolStripMenuItem();
             manajemenAkunToolStripMenuItem = new ToolStripMenuItem();
@@ -54,11 +54,14 @@
             profilToolStripMenuItem = new ToolStripMenuItem();
             informasiAkunToolStripMenuItem = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
+            pictureBox4 = new PictureBox();
             lyt_mitra.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbl_daftarprogrammitra).BeginInit();
             menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // lyt_mitra
@@ -89,15 +92,26 @@
             panel1.Size = new Size(382, 508);
             panel1.TabIndex = 0;
             // 
+            // pictureBox5
+            // 
+            pictureBox5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(219, 572);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(45, 48);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 34;
+            pictureBox5.TabStop = false;
+            // 
             // cbx_namamitra
             // 
             cbx_namamitra.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             cbx_namamitra.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point);
             cbx_namamitra.ForeColor = Color.Black;
             cbx_namamitra.FormattingEnabled = true;
-            cbx_namamitra.Location = new Point(0, 45);
+            cbx_namamitra.Location = new Point(0, 109);
             cbx_namamitra.Name = "cbx_namamitra";
-            cbx_namamitra.Size = new Size(376, 39);
+            cbx_namamitra.Size = new Size(376, 34);
             cbx_namamitra.TabIndex = 8;
             cbx_namamitra.SelectedIndexChanged += cbx_namamitra_SelectedIndexChanged;
             // 
@@ -108,7 +122,7 @@
             btn_tambah.BackgroundImageLayout = ImageLayout.None;
             btn_tambah.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btn_tambah.ForeColor = Color.White;
-            btn_tambah.Location = new Point(5, 465);
+            btn_tambah.Location = new Point(-3, 287);
             btn_tambah.Name = "btn_tambah";
             btn_tambah.Size = new Size(105, 38);
             btn_tambah.TabIndex = 6;
@@ -121,18 +135,18 @@
             cbx_program.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             cbx_program.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point);
             cbx_program.FormattingEnabled = true;
-            cbx_program.Location = new Point(0, 148);
+            cbx_program.Location = new Point(0, 212);
             cbx_program.Name = "cbx_program";
-            cbx_program.Size = new Size(376, 39);
+            cbx_program.Size = new Size(376, 34);
             cbx_program.TabIndex = 3;
             // 
             // lbl_program
             // 
             lbl_program.AutoSize = true;
             lbl_program.Font = new Font("Poppins SemiBold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_program.Location = new Point(4, 103);
+            lbl_program.Location = new Point(4, 167);
             lbl_program.Name = "lbl_program";
-            lbl_program.Size = new Size(105, 36);
+            lbl_program.Size = new Size(90, 30);
             lbl_program.TabIndex = 2;
             lbl_program.Text = "Program";
             // 
@@ -141,9 +155,9 @@
             lbl_namamitra.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lbl_namamitra.AutoSize = true;
             lbl_namamitra.Font = new Font("Poppins SemiBold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_namamitra.Location = new Point(5, 5);
+            lbl_namamitra.Location = new Point(5, 69);
             lbl_namamitra.Name = "lbl_namamitra";
-            lbl_namamitra.Size = new Size(138, 36);
+            lbl_namamitra.Size = new Size(117, 30);
             lbl_namamitra.TabIndex = 0;
             lbl_namamitra.Text = "Nama Mitra";
             // 
@@ -188,24 +202,10 @@
             lbl_daftarprogrammitra.Font = new Font("Poppins SemiBold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_daftarprogrammitra.Location = new Point(3, 3);
             lbl_daftarprogrammitra.Name = "lbl_daftarprogrammitra";
-            lbl_daftarprogrammitra.Size = new Size(234, 36);
+            lbl_daftarprogrammitra.Size = new Size(200, 30);
             lbl_daftarprogrammitra.TabIndex = 0;
             lbl_daftarprogrammitra.Text = "Daftar Program Mitra";
             lbl_daftarprogrammitra.Click += label4_Click;
-            // 
-            // btn_simpan
-            // 
-            btn_simpan.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_simpan.BackColor = SystemColors.MenuHighlight;
-            btn_simpan.BackgroundImageLayout = ImageLayout.None;
-            btn_simpan.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_simpan.ForeColor = Color.White;
-            btn_simpan.Location = new Point(693, 621);
-            btn_simpan.Name = "btn_simpan";
-            btn_simpan.Size = new Size(105, 38);
-            btn_simpan.TabIndex = 7;
-            btn_simpan.Text = "Simpan";
-            btn_simpan.UseVisualStyleBackColor = false;
             // 
             // menuStrip2
             // 
@@ -213,7 +213,7 @@
             menuStrip2.Items.AddRange(new ToolStripItem[] { dashboardToolStripMenuItem1, manajemenAkunToolStripMenuItem, mitraToolStripMenuItem, mataKuliahToolStripMenuItem, profilToolStripMenuItem });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
-            menuStrip2.Size = new Size(800, 39);
+            menuStrip2.Size = new Size(800, 34);
             menuStrip2.TabIndex = 8;
             menuStrip2.Text = "menuStrip2";
             // 
@@ -221,7 +221,7 @@
             // 
             dashboardToolStripMenuItem1.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point);
             dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            dashboardToolStripMenuItem1.Size = new Size(131, 35);
+            dashboardToolStripMenuItem1.Size = new Size(111, 30);
             dashboardToolStripMenuItem1.Text = "Dashboard";
             dashboardToolStripMenuItem1.Click += dashboardToolStripMenuItem1_Click;
             // 
@@ -230,20 +230,20 @@
             manajemenAkunToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { akunToolStripMenuItem, akunMahasiswaToolStripMenuItem });
             manajemenAkunToolStripMenuItem.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point);
             manajemenAkunToolStripMenuItem.Name = "manajemenAkunToolStripMenuItem";
-            manajemenAkunToolStripMenuItem.Size = new Size(189, 35);
+            manajemenAkunToolStripMenuItem.Size = new Size(158, 30);
             manajemenAkunToolStripMenuItem.Text = "Manajemen Akun";
             // 
             // akunToolStripMenuItem
             // 
             akunToolStripMenuItem.Name = "akunToolStripMenuItem";
-            akunToolStripMenuItem.Size = new Size(269, 40);
+            akunToolStripMenuItem.Size = new Size(225, 30);
             akunToolStripMenuItem.Text = "Akun Dosen";
             akunToolStripMenuItem.Click += akunToolStripMenuItem_Click;
             // 
             // akunMahasiswaToolStripMenuItem
             // 
             akunMahasiswaToolStripMenuItem.Name = "akunMahasiswaToolStripMenuItem";
-            akunMahasiswaToolStripMenuItem.Size = new Size(269, 40);
+            akunMahasiswaToolStripMenuItem.Size = new Size(225, 30);
             akunMahasiswaToolStripMenuItem.Text = "Akun Mahasiswa";
             akunMahasiswaToolStripMenuItem.Click += akunMahasiswaToolStripMenuItem_Click;
             // 
@@ -252,21 +252,21 @@
             mitraToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tambahProgramMitraToolStripMenuItem, tambahProgramMataKuliahToolStripMenuItem });
             mitraToolStripMenuItem.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point);
             mitraToolStripMenuItem.Name = "mitraToolStripMenuItem";
-            mitraToolStripMenuItem.Size = new Size(76, 35);
+            mitraToolStripMenuItem.Size = new Size(64, 30);
             mitraToolStripMenuItem.Text = "Mitra";
             mitraToolStripMenuItem.Click += mitraToolStripMenuItem_Click;
             // 
             // tambahProgramMitraToolStripMenuItem
             // 
             tambahProgramMitraToolStripMenuItem.Name = "tambahProgramMitraToolStripMenuItem";
-            tambahProgramMitraToolStripMenuItem.Size = new Size(391, 40);
+            tambahProgramMitraToolStripMenuItem.Size = new Size(324, 30);
             tambahProgramMitraToolStripMenuItem.Text = "Tambah Mitra Program";
             tambahProgramMitraToolStripMenuItem.Click += tambahProgramMitraToolStripMenuItem_Click;
             // 
             // tambahProgramMataKuliahToolStripMenuItem
             // 
             tambahProgramMataKuliahToolStripMenuItem.Name = "tambahProgramMataKuliahToolStripMenuItem";
-            tambahProgramMataKuliahToolStripMenuItem.Size = new Size(391, 40);
+            tambahProgramMataKuliahToolStripMenuItem.Size = new Size(324, 30);
             tambahProgramMataKuliahToolStripMenuItem.Text = "Tambah Program Mata Kuliah";
             tambahProgramMataKuliahToolStripMenuItem.Click += tambahProgramMataKuliahToolStripMenuItem_Click;
             // 
@@ -274,7 +274,7 @@
             // 
             mataKuliahToolStripMenuItem.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point);
             mataKuliahToolStripMenuItem.Name = "mataKuliahToolStripMenuItem";
-            mataKuliahToolStripMenuItem.Size = new Size(137, 35);
+            mataKuliahToolStripMenuItem.Size = new Size(115, 30);
             mataKuliahToolStripMenuItem.Text = "Mata Kuliah";
             mataKuliahToolStripMenuItem.Click += mataKuliahToolStripMenuItem_Click;
             // 
@@ -283,31 +283,43 @@
             profilToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { informasiAkunToolStripMenuItem, logOutToolStripMenuItem });
             profilToolStripMenuItem.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point);
             profilToolStripMenuItem.Name = "profilToolStripMenuItem";
-            profilToolStripMenuItem.Size = new Size(73, 35);
+            profilToolStripMenuItem.Size = new Size(64, 30);
             profilToolStripMenuItem.Text = "Profil";
             profilToolStripMenuItem.Click += profilToolStripMenuItem_Click;
             // 
             // informasiAkunToolStripMenuItem
             // 
             informasiAkunToolStripMenuItem.Name = "informasiAkunToolStripMenuItem";
-            informasiAkunToolStripMenuItem.Size = new Size(270, 40);
+            informasiAkunToolStripMenuItem.Size = new Size(212, 30);
             informasiAkunToolStripMenuItem.Text = "Informasi Akun";
             informasiAkunToolStripMenuItem.Click += informasiAkunToolStripMenuItem_Click_1;
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(270, 40);
+            logOutToolStripMenuItem.Size = new Size(212, 30);
             logOutToolStripMenuItem.Text = "Log Out";
             logOutToolStripMenuItem.Click += logOutToolStripMenuItem_Click_1;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(-9, 481);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(194, 220);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 33;
+            pictureBox4.TabStop = false;
+            // 
             // v_TambahMitraProgram
             // 
-            AutoScaleDimensions = new SizeF(11F, 31F);
+            AutoScaleDimensions = new SizeF(9F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 660);
+            Controls.Add(pictureBox5);
+            Controls.Add(pictureBox4);
             Controls.Add(menuStrip2);
-            Controls.Add(btn_simpan);
             Controls.Add(lyt_mitra);
             Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -319,11 +331,13 @@
             lyt_mitra.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)tbl_daftarprogrammitra).EndInit();
             menuStrip2.ResumeLayout(false);
             menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -339,7 +353,6 @@
         private Panel panel2;
         private DataGridView tbl_daftarprogrammitra;
         private Label lbl_daftarprogrammitra;
-        private Button btn_simpan;
         private MenuStrip menuStrip2;
         private ToolStripMenuItem dashboardToolStripMenuItem1;
         private ToolStripMenuItem manajemenAkunToolStripMenuItem;
@@ -355,5 +368,7 @@
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private ComboBox cbx_namamitra;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
     }
 }

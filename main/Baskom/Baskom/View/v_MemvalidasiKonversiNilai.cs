@@ -16,11 +16,11 @@ namespace Baskom.View
     {
         private c_Dashboard c_Dashboard;
         private c_MemvalidasiKonversiNilai c_MemvalidasiKonversiNilai;
-        public v_MemvalidasiKonversiNilai(c_Dashboard c_Dashboard, m_DataKonversiNilai m_DataKonversiNilai, m_DataAkunDosen m_DataAkunDosen, m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataProdi m_DataProdi, m_DataPenerimaanMitra m_DataPenerimaanMitra, m_DataMitra m_DataMitra, m_DataProgram m_DataProgram, m_DataPembagianTugas m_DataPembagianTugas, m_DataAkunTimmbkm data_akun_pengguna)
+        public v_MemvalidasiKonversiNilai(c_Dashboard c_Dashboard, m_DataKonversiSks m_DataKonversiSks, m_DataKonversiNilai m_DataKonversiNilai, m_DataAkunDosen m_DataAkunDosen, m_DataAkunMahasiswa m_DataAkunMahasiswa, m_DataProdi m_DataProdi, m_DataPenerimaanMitra m_DataPenerimaanMitra, m_DataMitra m_DataMitra, m_DataProgram m_DataProgram, m_DataPembagianTugas m_DataPembagianTugas, m_DataAkunTimmbkm data_akun_pengguna)
         {
             InitializeComponent();
             this.c_Dashboard = c_Dashboard;
-            this.c_MemvalidasiKonversiNilai = new c_MemvalidasiKonversiNilai(m_DataKonversiNilai, m_DataAkunDosen, m_DataAkunMahasiswa, m_DataProdi, m_DataPenerimaanMitra, m_DataMitra, m_DataProgram, m_DataPembagianTugas, data_akun_pengguna);
+            this.c_MemvalidasiKonversiNilai = new c_MemvalidasiKonversiNilai(m_DataKonversiSks, m_DataKonversiNilai, m_DataAkunDosen, m_DataAkunMahasiswa, m_DataProdi, m_DataPenerimaanMitra, m_DataMitra, m_DataProgram, m_DataPembagianTugas, data_akun_pengguna);
             this.init();
         }
         public void init()
@@ -57,7 +57,7 @@ namespace Baskom.View
             string program = (string)tbl_konversinilai1.Rows[index].Cells[4].Value;
             if (e.ColumnIndex == 5)
             {
-                c_Dashboard.setDetailValidasiKonversiNilai(nama_mhs, nim, nama_mitra,prodi,program);
+                c_Dashboard.setDetailValidasiKonversiNilai(nama_mhs, nim, nama_mitra, prodi, program);
             }
         }
 

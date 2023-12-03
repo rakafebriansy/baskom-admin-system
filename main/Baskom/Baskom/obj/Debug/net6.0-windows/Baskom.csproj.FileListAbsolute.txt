@@ -46,7 +46,6 @@ D:\CINTA CODING\baskom\main\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.runtim
 D:\CINTA CODING\baskom\main\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.dll
 D:\CINTA CODING\baskom\main\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.pdb
 D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.Properties.Resources.resources
-D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_CariMataKuliah.resources
 D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardAdmin.resources
 D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardMahasiswa.resources
 D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardTimmbkm.resources
@@ -67,7 +66,6 @@ D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v
 D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahKonversiNilai.resources
 D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahKonversiSks.resources
 D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMataKuliahTempuh.resources
-D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahPengajuanMitra.resources
 D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.GenerateResource.cache
 D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.GeneratedMSBuildEditorConfig.editorconfig
 D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.CoreCompileInputs.cache
@@ -119,7 +117,6 @@ C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMataKuliah.resources
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMataKuliahTempuh.resources
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMitraProgram.resources
-C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahPengajuanMitra.resources
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahProgramMataKuliah.resources
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_UbahKataSandiProfil.resources
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ValidasiMOA.resources
@@ -140,4 +137,158 @@ C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\bin\Debug\net6.0-windows\
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.CopyComplete
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.genruntimeconfig.cache
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\ref\Baskom.dll
+D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LihatMataKuliahProgram.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.exe
+D:\sm 3\BASKOM\main\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.deps.json
+D:\sm 3\BASKOM\main\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.runtimeconfig.json
+D:\sm 3\BASKOM\main\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.dll
+D:\sm 3\BASKOM\main\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.pdb
+D:\sm 3\BASKOM\main\Baskom\Baskom\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\sm 3\BASKOM\main\Baskom\Baskom\bin\Debug\net6.0-windows\Npgsql.dll
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.AssemblyReference.cache
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.Properties.Resources.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DaftarMitra.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardAdmin.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardMahasiswa.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardTimmbkm.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DataDosen.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DataMahasiswa.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailValidasiKonversiNilai.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailValidasiKonversiSks.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LihatMataKuliahProgram.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_Login.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LoginAdmin.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LoginMahasiswa.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LoginTimmbkm.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_MemvalidasiKonversiNilai.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_MemvalidasiKonversiSks.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_PembagianTugas.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_PenerimaanMitra.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_PengajuanMOA.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ProfilAdmin.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ProfilMahasiswa.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ProfilTimMBKM.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahDosenTimmbkm.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahKonversiNilai.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahKonversiSks.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMahasiswa.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMataKuliah.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMataKuliahTempuh.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMitraProgram.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahProgramMataKuliah.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_UbahKataSandiProfil.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ValidasiMOA.resources
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.GenerateResource.cache
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.GeneratedMSBuildEditorConfig.editorconfig
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.CoreCompileInputs.cache
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.CopyComplete
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.dll
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\refint\Baskom.dll
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.pdb
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.genruntimeconfig.cache
+D:\sm 3\BASKOM\main\Baskom\Baskom\obj\Debug\net6.0-windows\ref\Baskom.dll
+C:\Users\shavi\Music\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.exe
+C:\Users\shavi\Music\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.deps.json
+C:\Users\shavi\Music\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.runtimeconfig.json
+C:\Users\shavi\Music\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.dll
+C:\Users\shavi\Music\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.pdb
+C:\Users\shavi\Music\Baskom\Baskom\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\shavi\Music\Baskom\Baskom\bin\Debug\net6.0-windows\Npgsql.dll
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.AssemblyReference.cache
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.Properties.Resources.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DaftarMitra.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardAdmin.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardMahasiswa.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardTimmbkm.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DataDosen.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DataMahasiswa.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailValidasiKonversiNilai.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailValidasiKonversiSks.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LihatMataKuliahProgram.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_Login.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LoginAdmin.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LoginMahasiswa.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LoginTimmbkm.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_MemvalidasiKonversiNilai.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_MemvalidasiKonversiSks.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_PembagianTugas.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_PenerimaanMitra.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_PengajuanMOA.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ProfilAdmin.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ProfilMahasiswa.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ProfilTimMBKM.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahDosenTimmbkm.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahKonversiNilai.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahKonversiSks.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMahasiswa.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMataKuliah.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMataKuliahTempuh.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMitraProgram.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahProgramMataKuliah.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_UbahKataSandiProfil.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ValidasiMOA.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.GenerateResource.cache
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.CoreCompileInputs.cache
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.CopyComplete
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.dll
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\refint\Baskom.dll
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.pdb
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.genruntimeconfig.cache
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\ref\Baskom.dll
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailDosen.resources
+C:\Users\shavi\Music\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailMahasiswa.resources
+C:\Users\HP\Documents\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.exe
+C:\Users\HP\Documents\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.deps.json
+C:\Users\HP\Documents\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.runtimeconfig.json
+C:\Users\HP\Documents\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.dll
+C:\Users\HP\Documents\Baskom\Baskom\bin\Debug\net6.0-windows\Baskom.pdb
+C:\Users\HP\Documents\Baskom\Baskom\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\HP\Documents\Baskom\Baskom\bin\Debug\net6.0-windows\Npgsql.dll
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.Properties.Resources.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DaftarMitra.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardAdmin.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardMahasiswa.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DashboardTimmbkm.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DataDosen.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DataMahasiswa.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailDosen.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailMahasiswa.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailValidasiKonversiNilai.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailValidasiKonversiSks.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LihatMataKuliahProgram.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_Login.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LoginAdmin.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LoginMahasiswa.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LoginTimmbkm.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_MemvalidasiKonversiNilai.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_MemvalidasiKonversiSks.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_PembagianTugas.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_PenerimaanMitra.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_PengajuanMOA.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ProfilAdmin.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ProfilMahasiswa.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ProfilTimMBKM.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahDosenTimmbkm.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahKonversiNilai.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahKonversiSks.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMahasiswa.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMataKuliah.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMataKuliahTempuh.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahMitraProgram.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_TambahProgramMataKuliah.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_UbahKataSandiProfil.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_ValidasiMOA.resources
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.GenerateResource.cache
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.csproj.CopyComplete
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.dll
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\refint\Baskom.dll
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.pdb
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.genruntimeconfig.cache
+C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\ref\Baskom.dll
+C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailDosen.resources
+C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailMahasiswa.resources
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LihatMataKuliahProgram.resources

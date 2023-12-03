@@ -33,8 +33,8 @@ namespace Baskom.Controller
             List<object[]> detail_matkul = this.m_DataDetailProgram.getAllDetailProgram();
             foreach (object[] item in detail_matkul)
             {
-                object[] program = this.m_DataProgram.getProgramById((int)item[0]);
-                object[] matkul = this.m_DataMataKuliah.getMataKuliahById((int)item[1]);
+                object[] program = this.m_DataProgram.getProgramById((int)item[1]);
+                object[] matkul = this.m_DataMataKuliah.getMataKuliahById((int)item[0]);
                 item[0] = program[1];
                 item[1] = matkul[2];
             }
@@ -45,16 +45,19 @@ namespace Baskom.Controller
             string message = "";
             bool isAvailable = false;
             List<object[]> detail_matkul = this.m_DataDetailProgram.getAllDetailProgram();
-            List<object[]> program = this.m_DataProgram.getAllProgram();
+            List<object[]> list_program = this.m_DataProgram.getAllProgram();
+            object[] program = this.m_DataProgram.getProgramByNama(nama_program);
             object[] matkul = this.m_DataMataKuliah.getMataKuliahByNama(nama_matkul);
             foreach (object[] item in detail_matkul)
             {
-                if (item[0].ToString() == nama_program && item[1].ToString() == matkul[0].ToString())
+                if (item[0].ToString() == matkul[0].ToString() && item[1].ToString() == program[0].ToString())
                 {
-                    return "Detail Program Telah Tersedia!";
+                    message = "Detail Program Telah Tersedia!";
+                    return message;
                 }
             }
-            foreach (object[] item in program)
+
+            foreach (object[] item in list_program)
             {
                 if (item[1].ToString() == nama_program)
                 {
@@ -62,12 +65,15 @@ namespace Baskom.Controller
                     break;
                 }
             }
+
             if (!isAvailable)
             {
                 this.m_DataProgram.sendProgram(nama_program);
+            } else
+            {
+                int id_program = (int)m_DataProgram.getProgramByNama(nama_program)[0];
+                this.m_DataDetailProgram.sendDetailProgram((int)id_program, (int)matkul[0]);
             }
-            int id_program = (int)m_DataProgram.getProgramByNama(nama_program)[0];
-            this.m_DataDetailProgram.sendDetailProgram((int)id_program, (int)matkul[0]);
             return message;
         }
     }

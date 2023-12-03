@@ -31,12 +31,7 @@ namespace Baskom.Controller
                 {
                     message = "NIDN Telah Digunakan!";
                     return message;
-                }
-                else if (item[3].ToString() == dosen[2].ToString())
-                {
-                    message = "Nama Telah Digunakan!";
-                    return message;
-                }                
+                }               
                 else if (item[4].ToString() == dosen[3].ToString())
                 {
                     message = "Nomor WhatsApp Telah Digunakan!";
@@ -49,12 +44,54 @@ namespace Baskom.Controller
                 }
             }
             this.m_DataAkunDosen.sendDosen(dosen);
+            message = "Data Dosen Berhasil Ditambahkan!";
             return message;
         }
-        public void tambahTimmbkmBaru(object[] dosen)
+        public string tambahTimmbkmBaru(object[] dosen)
         {
-            object[] dosen_lama = this.m_DataAkunDosen.getDosenByNidn((string)dosen[1]);
-            this.m_DataAkunTimmbkm.sendTimmbkm((string)dosen[1],(string)dosen_lama[0]);
+            object[] timmbkm = this.m_DataAkunTimmbkm.getTimmbkmByNidn((string)dosen[1]);
+            object[] dosenbaru = this.m_DataAkunDosen.getDosenByNidn((string)dosen[1]);
+            List<object[]> dosenLama = this.m_DataAkunDosen.getAllDosen();
+            string message = "";
+
+            bool available = true;
+            foreach (var item in timmbkm)
+            {
+                if (item == null)
+                {
+                    available = false;
+                }
+            }
+
+            if (available)
+            {
+                message = "NIDN Telah Terdaftar di TimMbkm!";
+                return message;
+            }
+            else
+            {
+                foreach (object[] item in dosenLama)
+                {
+                    if ((string)dosen[0] == (string)item[1] && (string)dosen[1] == (string)item[2])
+                    {
+                        break;
+                    }
+                    else if ((string)dosen[0] == (string)item[1])
+                    {
+                        message = "NIP Telah Digunakan";
+                        return message;
+                    }
+                    else if ((string)dosen[1] == (string)item[2])
+                    {
+                        message = "NIDN Telah Digunakan";
+                        return message;
+                    }
+                }
+
+                this.m_DataAkunTimmbkm.sendTimmbkm((string)dosen[1], (int)dosenbaru[0]);
+                message = "Data TimMbkm Berhasil Ditambahkan!";
+                return message;
+            }
         }
     }
 }

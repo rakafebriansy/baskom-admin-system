@@ -22,8 +22,8 @@ namespace Baskom.View
             this.c_Dashboard = c_Dashboard;
             this.data_akun_pengguna = data_akun_pengguna;
             object[] data_admin = data_akun_pengguna.getAttributes();
-            lbl_nama.Text = (string)data_admin[0];
-            lbl_katasandi.Text = (string)data_admin[1];
+            lbl_nama.Text = (string)data_admin[1];
+            lbl_katasandi.Text = (string)data_admin[2];
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

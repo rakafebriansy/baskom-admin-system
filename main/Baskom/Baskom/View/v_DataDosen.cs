@@ -32,7 +32,7 @@ namespace Baskom.View
 
         private void akunDosenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //this
+            this.init();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace Baskom.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            c_Dashboard.setTambahDosenTimmbkm();
+            c_Dashboard.setTambahDosenTimmbkm(this);
             this.init();
         }
 
@@ -122,6 +122,11 @@ namespace Baskom.View
         {
             this.Close();
             c_Dashboard.setTambahProgramMataKuliah();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

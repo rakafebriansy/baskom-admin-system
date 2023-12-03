@@ -24,7 +24,6 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
-
         public List<object[]> getDetailProgramByIdProgram(int id_program)
         {
             List<object[]> result = new List<object[]>();
@@ -40,7 +39,6 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
-
         public void sendDetailProgram(int id_program, int id_matkul)
         {
             Database.Database.sendData($"INSERT INTO \"Data_Detail_Program\" (id_program, id_matkul) VALUES ({id_program},{id_matkul});");

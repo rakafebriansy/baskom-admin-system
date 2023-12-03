@@ -74,42 +74,9 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
-
-        public int getJumlahSKSByIdMhs(int id_mahasiswa)
-        {
-            NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Penerimaan_Mitra\" WHERE id_mahasiswa = {id_mahasiswa}");
-            int field_count = reader.FieldCount;
-            object[] result = new object[field_count];
-            while (reader.Read())
-            {
-                result[0] = reader[0];
-                result[1] = reader[1];
-                result[2] = reader[2];
-                result[3] = reader[3];
-                result[4] = reader[4];
-                result[5] = reader[5];
-                result[6] = reader[6];
-                result[7] = reader[7];
-                result[8] = reader[8];
-                result[9] = reader[9];
-            }
-            reader.Close();
-            return int.Parse(result[3].ToString());
-        }
-
         public void sendPenerimaan(object[] penerimaan_mitra)
         {
-            int status_pkl;
-            if (penerimaan_mitra[0] == "True")
-            {
-                status_pkl = 1;
-            }
-            else
-            {
-                status_pkl = 0;
-            }
-
-            string query = $"INSERT INTO \"Data_Penerimaan_Mitra\" (status_pkl, no_wa, jumlah_sks, bukti_penerimaan, id_bkp, id_mitra, id_dosen, id_mahasiswa, id_program) VALUES ({status_pkl}, '{penerimaan_mitra[1]}', {int.Parse(penerimaan_mitra[2].ToString())}, '{penerimaan_mitra[3]}', {penerimaan_mitra[4]}, {penerimaan_mitra[5]}, {penerimaan_mitra[6]}, {penerimaan_mitra[7]}, {penerimaan_mitra[8]});";
+            string query = $"INSERT INTO \"Data_Penerimaan_Mitra\" (status_pkl, no_wa, jumlah_sks, bukti_penerimaan, id_bkp, id_mitra, id_dosen, id_mahasiswa,id_program) VALUES ({penerimaan_mitra[0]}, '{penerimaan_mitra[1]}', {penerimaan_mitra[2]}, '{penerimaan_mitra[3]}', {penerimaan_mitra[4]}, {penerimaan_mitra[5]}, {penerimaan_mitra[6]}, {penerimaan_mitra[7]}, {penerimaan_mitra[8]});";
             Database.Database.sendData(query);
         }
     }

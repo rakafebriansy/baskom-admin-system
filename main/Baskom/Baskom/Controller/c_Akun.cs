@@ -18,7 +18,7 @@ namespace Baskom.Controller
         public c_Akun()
         {
         }
-        public void loginAdmin(string email, string kata_sandi, v_LoginAdmin form)
+        public bool loginAdmin(string email, string kata_sandi, v_LoginAdmin form)
         {
             this.m_DataAkunAdmin = new m_DataAkunAdmin();
             bool check = this.m_DataAkunAdmin.cekLoginAdmin(email, kata_sandi);
@@ -27,10 +27,12 @@ namespace Baskom.Controller
                 c_Dashboard c_Dashboard = new(this.m_DataAkunAdmin);
                 form.Close();
                 c_Dashboard.setDashboardAdmin();
+                return true;
             }
             else
             {
                 MessageBox.Show("Data Login Tidak Valid!");
+                return false;
             }
         }
 

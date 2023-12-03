@@ -40,16 +40,15 @@ namespace Baskom.Controller
                 //if ((int)pembagian_tugas[2] == (int)this.data_akun_pengguna[0])
                 //{
                     object[] items = new object[6];
-                    object[] penerimaan_mitra = m_DataPenerimaanMitra.getPenerimaanMitraByIdMhs((int)pembagian_tugas[1]);
                     object[] mahasiswa = m_DataAkunMahasiswa.getMahasiswaById((int)pembagian_tugas[1]);
+                    object[] penerimaan_mitra = m_DataPenerimaanMitra.getPenerimaanMitraByIdMhs((int)pembagian_tugas[1]);
                     object[] timmbkm = m_DataAkunTimmbkm.getTimmbkmById((int)pembagian_tugas[2]);
-                    object[] dosen = m_DataAkunDosen.getDosenById((int)timmbkm[2]);
                     items[0] = (string)mahasiswa[2];
                     items[1] = (string)mahasiswa[1];
                     items[2] = m_DataProdi.getNamaProdiById((int)mahasiswa[9]);
                     items[3] = (string)m_DataMitra.getMitraById((int)penerimaan_mitra[6])[1];
                     items[4] = (string)m_DataProgram.getProgramById((int)penerimaan_mitra[9])[1];
-                    items[5] = (string)dosen[3];
+                    items[5] = (string)m_DataAkunDosen.getDosenById((int)timmbkm[2])[3];
                     result.Add(items);
                 //}
             }

@@ -20,7 +20,6 @@ namespace Baskom.View
         object[] data_mahasiswa;
         List<object[]> list_konversi_sks;
         List<object[]> list_data_sks;
-
         public v_TambahMataKuliahTempuh(c_Dashboard c_Dashboard, m_DataAkunMahasiswa data_akun_pengguna, m_DataMataKuliah m_DataMataKuliah, m_DataMataKuliahTempuh m_DataMataKuliahTempuh, m_DataKonversiSks m_DataKonversiSks)
         {
             InitializeComponent();
@@ -111,7 +110,7 @@ namespace Baskom.View
         private void statusMOAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            c_Dashboard.setStatusMOA();
+            c_Dashboard.setPengajuanMOA();
         }
 
         private void konversiNilaiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -162,6 +161,19 @@ namespace Baskom.View
 
                 c_TambahMataKuliahTempuh.tambahMataKuliahTempuh(matkulTempuhBaru);
 
+                this.init();
+                this.isiComboBox();
+            }
+        }
+
+        private void tbl_matkul_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                int id_mahasiswa = (int)data_mahasiswa[0];
+                object[] matkul = c_TambahMataKuliahTempuh.getMatkulByKode(tbl_matkul.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                c_TambahMataKuliahTempuh.hapusDataMatkulTempuh(id_mahasiswa, (int)matkul[0]);
                 this.init();
                 this.isiComboBox();
             }

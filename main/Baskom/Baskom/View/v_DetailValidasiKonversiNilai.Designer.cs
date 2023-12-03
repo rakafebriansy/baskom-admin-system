@@ -51,9 +51,15 @@
             clm_buktilaporan = new DataGridViewLinkColumn();
             clm_validasi = new DataGridViewCheckBoxColumn();
             btn_simpan = new Button();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox5 = new PictureBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbl_detailkonversinilai).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -87,7 +93,7 @@
             tableLayoutPanel1.Controls.Add(lbl_mitra, 1, 3);
             tableLayoutPanel1.Controls.Add(lbl_posisi, 1, 4);
             tableLayoutPanel1.Controls.Add(label2, 0, 1);
-            tableLayoutPanel1.Location = new Point(19, 41);
+            tableLayoutPanel1.Location = new Point(19, 65);
             tableLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 5;
@@ -99,6 +105,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
             tableLayoutPanel1.Size = new Size(682, 153);
             tableLayoutPanel1.TabIndex = 2;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint_1;
             // 
             // label1
             // 
@@ -107,7 +114,7 @@
             label1.Location = new Point(4, 0);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(61, 22);
+            label1.Size = new Size(52, 18);
             label1.TabIndex = 0;
             label1.Text = "Nama";
             // 
@@ -118,9 +125,10 @@
             label3.Location = new Point(4, 48);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(91, 25);
+            label3.Size = new Size(116, 18);
             label3.TabIndex = 2;
             label3.Text = "Program Studi";
+            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -129,9 +137,10 @@
             label4.Location = new Point(4, 73);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(111, 22);
+            label4.Size = new Size(95, 18);
             label4.TabIndex = 3;
             label4.Text = "Nama Mitra";
+            label4.Click += label4_Click;
             // 
             // label5
             // 
@@ -140,9 +149,10 @@
             label5.Location = new Point(4, 98);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(85, 22);
+            label5.Size = new Size(73, 18);
             label5.TabIndex = 4;
             label5.Text = "Program";
+            label5.Click += label5_Click;
             // 
             // lbl_nama
             // 
@@ -151,10 +161,9 @@
             lbl_nama.Location = new Point(133, 0);
             lbl_nama.Margin = new Padding(4, 0, 4, 0);
             lbl_nama.Name = "lbl_nama";
-            lbl_nama.Size = new Size(108, 22);
+            lbl_nama.Size = new Size(88, 18);
             lbl_nama.TabIndex = 5;
             lbl_nama.Text = "Auryn Devi";
-            lbl_nama.Visible = false;
             lbl_nama.Click += label6_Click;
             // 
             // lbl_nim
@@ -164,9 +173,10 @@
             lbl_nim.Location = new Point(133, 24);
             lbl_nim.Margin = new Padding(4, 0, 4, 0);
             lbl_nim.Name = "lbl_nim";
-            lbl_nim.Size = new Size(140, 22);
+            lbl_nim.Size = new Size(114, 18);
             lbl_nim.TabIndex = 6;
             lbl_nim.Text = "2224101010xx";
+            lbl_nim.Click += lbl_nim_Click;
             // 
             // lbl_prodi
             // 
@@ -175,9 +185,10 @@
             lbl_prodi.Location = new Point(133, 48);
             lbl_prodi.Margin = new Padding(4, 0, 4, 0);
             lbl_prodi.Name = "lbl_prodi";
-            lbl_prodi.Size = new Size(157, 22);
+            lbl_prodi.Size = new Size(135, 18);
             lbl_prodi.TabIndex = 7;
             lbl_prodi.Text = "Sistem Informasi";
+            lbl_prodi.Click += lbl_prodi_Click;
             // 
             // lbl_mitra
             // 
@@ -186,9 +197,10 @@
             lbl_mitra.Location = new Point(133, 73);
             lbl_mitra.Margin = new Padding(4, 0, 4, 0);
             lbl_mitra.Name = "lbl_mitra";
-            lbl_mitra.Size = new Size(188, 22);
+            lbl_mitra.Size = new Size(158, 18);
             lbl_mitra.TabIndex = 8;
             lbl_mitra.Text = "Pt. Benakno Official";
+            lbl_mitra.Click += lbl_mitra_Click;
             // 
             // lbl_posisi
             // 
@@ -197,9 +209,10 @@
             lbl_posisi.Location = new Point(133, 98);
             lbl_posisi.Margin = new Padding(4, 0, 4, 0);
             lbl_posisi.Name = "lbl_posisi";
-            lbl_posisi.Size = new Size(38, 22);
+            lbl_posisi.Size = new Size(33, 18);
             lbl_posisi.TabIndex = 9;
             lbl_posisi.Text = "PM";
+            lbl_posisi.Click += lbl_posisi_Click;
             // 
             // label2
             // 
@@ -208,7 +221,7 @@
             label2.Location = new Point(4, 24);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(44, 22);
+            label2.Size = new Size(38, 18);
             label2.TabIndex = 1;
             label2.Text = "NIM";
             label2.Click += label2_Click;
@@ -217,11 +230,12 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.Controls.Add(tbl_detailkonversinilai);
-            panel1.Location = new Point(19, 195);
+            panel1.Location = new Point(19, 217);
             panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
             panel1.Size = new Size(682, 242);
             panel1.TabIndex = 3;
+            panel1.Paint += panel1_Paint;
             // 
             // tbl_detailkonversinilai
             // 
@@ -230,7 +244,7 @@
             tbl_detailkonversinilai.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             tbl_detailkonversinilai.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tbl_detailkonversinilai.Columns.AddRange(new DataGridViewColumn[] { clm_Kompetensi, clm_nilai_capaian, clm_deskripsi_nilai, clm_buktilaporan, clm_validasi });
-            tbl_detailkonversinilai.Location = new Point(3, 3);
+            tbl_detailkonversinilai.Location = new Point(3, 5);
             tbl_detailkonversinilai.Margin = new Padding(4, 5, 4, 5);
             tbl_detailkonversinilai.Name = "tbl_detailkonversinilai";
             tbl_detailkonversinilai.RowHeadersWidth = 62;
@@ -249,7 +263,7 @@
             // clm_nilai_capaian
             // 
             clm_nilai_capaian.FillWeight = 45.81083F;
-            clm_nilai_capaian.HeaderText = "Nilai Capaian";
+            clm_nilai_capaian.HeaderText = "Deskripsi Kompetensi";
             clm_nilai_capaian.MinimumWidth = 8;
             clm_nilai_capaian.Name = "clm_nilai_capaian";
             clm_nilai_capaian.ReadOnly = true;
@@ -257,7 +271,7 @@
             // clm_deskripsi_nilai
             // 
             clm_deskripsi_nilai.FillWeight = 45.81083F;
-            clm_deskripsi_nilai.HeaderText = "Deskripsi Nilai Capaian";
+            clm_deskripsi_nilai.HeaderText = "Nilai Capaian";
             clm_deskripsi_nilai.MinimumWidth = 8;
             clm_deskripsi_nilai.Name = "clm_deskripsi_nilai";
             clm_deskripsi_nilai.ReadOnly = true;
@@ -282,7 +296,7 @@
             btn_simpan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btn_simpan.BackColor = SystemColors.MenuHighlight;
             btn_simpan.ForeColor = Color.White;
-            btn_simpan.Location = new Point(617, 443);
+            btn_simpan.Location = new Point(617, 465);
             btn_simpan.Margin = new Padding(4, 5, 4, 5);
             btn_simpan.Name = "btn_simpan";
             btn_simpan.Size = new Size(81, 29);
@@ -291,11 +305,48 @@
             btn_simpan.UseVisualStyleBackColor = false;
             btn_simpan.Click += button1_Click;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(-4, 354);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(154, 197);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 19;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(544, 285);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(134, 133);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 21;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Anchor = AnchorStyles.Bottom;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(366, 469);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(45, 48);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 20;
+            pictureBox5.TabStop = false;
+            // 
             // v_DetailValidasiKonversiNilai
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(10F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(706, 495);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox5);
+            Controls.Add(pictureBox4);
             Controls.Add(btn_simpan);
             Controls.Add(panel1);
             Controls.Add(tableLayoutPanel1);
@@ -312,6 +363,9 @@
             tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbl_detailkonversinilai).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -339,5 +393,8 @@
         private DataGridViewTextBoxColumn clm_deskripsi_nilai;
         private DataGridViewLinkColumn clm_buktilaporan;
         private DataGridViewCheckBoxColumn clm_validasi;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox5;
     }
 }

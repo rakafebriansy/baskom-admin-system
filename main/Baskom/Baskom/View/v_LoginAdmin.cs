@@ -7,11 +7,14 @@ namespace Baskom.View
     {
         private c_Akun c_Akun;
         private m_DataAkunAdmin m_DataAkunAdmin = new();
+        private v_Login v_Login;
+        private string kata_sandi;
 
-        public v_LoginAdmin(c_Akun c_Akun)
+        public v_LoginAdmin(c_Akun c_Akun, v_Login v_Login)
         {
             InitializeComponent();
             this.c_Akun = c_Akun;
+            this.v_Login = v_Login;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,13 +36,19 @@ namespace Baskom.View
         {
             string nidn = tbx_email.Text;
             string kata_sandi = tbx_katasandi.Text;
-            c_Akun.loginAdmin(nidn, kata_sandi,this);
-            this.Close();
+            bool berhasil = c_Akun.loginAdmin(nidn, kata_sandi, this);
+            if (berhasil == true)
+            {
+                this.Close();
+            } else
+            {
+                tbx_email.Clear();
+                tbx_katasandi.Clear();
+            }
         }
 
         private void lnk_loginsebagaiyanglain_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            v_Login v_Login = new();
             v_Login.Show();
             this.Close();
         }
@@ -54,6 +63,24 @@ namespace Baskom.View
             {
                 return true;
             }
+        }
+
+        private void btn_lihat_Click(object sender, EventArgs e)
+        {
+            if (tbx_katasandi.PasswordChar == (char)0)
+            {
+                tbx_katasandi.PasswordChar = '*';
+            }
+            else
+            {
+                tbx_katasandi.PasswordChar = (char)0;
+            }
+        }
+
+        private void tbx_katasandi_TextChanged(object sender, EventArgs e)
+        {
+            tbx_katasandi.ForeColor = Color.Black;
+            tbx_katasandi.PasswordChar = '*';
         }
     }
 }

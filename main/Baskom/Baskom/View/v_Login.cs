@@ -18,7 +18,7 @@ namespace Baskom.View
         public v_Login()
         {
             InitializeComponent();
-            this.c_Login = new c_Login();
+            this.c_Login = new c_Login(this);
         }
 
 
@@ -54,7 +54,7 @@ namespace Baskom.View
 
         private void button2_Click(object sender, EventArgs e)
         {
-            c_Login.setLoginTimmbkm(this);   
+            c_Login.setLoginTimmbkm(this);
         }
 
         private void btn_loginadmin_Click(object sender, EventArgs e)

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Baskom.Controller
 {
-    class c_KonversiSks
+    internal class c_TambahKonversiSks
     {
-        m_DataKonversiSks m_DataKonversiSks;
-        m_DataMataKuliah m_DataMataKuliah;
-        m_DataMataKuliahTempuh m_DataMataKuliahTempuh;
-        m_DataPenerimaanMitra m_DataPenerimaanMitra;
+        private m_DataKonversiSks m_DataKonversiSks;
+        private m_DataMataKuliah m_DataMataKuliah;
+        private m_DataMataKuliahTempuh m_DataMataKuliahTempuh;
+        private m_DataPenerimaanMitra m_DataPenerimaanMitra;
 
-        public c_KonversiSks(m_DataKonversiSks m_DataKonversiSks, m_DataMataKuliah m_DataMataKuliah, m_DataMataKuliahTempuh m_DataMataKuliahTempuh, m_DataPenerimaanMitra m_DataPenerimaanMitra)
+        public c_TambahKonversiSks(m_DataKonversiSks m_DataKonversiSks, m_DataMataKuliah m_DataMataKuliah, m_DataMataKuliahTempuh m_DataMataKuliahTempuh, m_DataPenerimaanMitra m_DataPenerimaanMitra)
         {
             this.m_DataKonversiSks = m_DataKonversiSks;
             this.m_DataMataKuliah = m_DataMataKuliah;
@@ -36,7 +36,7 @@ namespace Baskom.Controller
 
         public void hapusDataSKS(int id_mahasiswa, int id_matkul)
         {
-            this.m_DataKonversiSks.hapusDataSks(id_mahasiswa, id_matkul);
+            this.m_DataKonversiSks.deleteDataKonversiSks(id_mahasiswa, id_matkul);
         }
 
         public List<object[]> getAllNonMatkulTempuh(int id_mahasiswa)
@@ -48,13 +48,19 @@ namespace Baskom.Controller
 
         public int getJumlahMaksSKS(int id_mahasiswa)
         {
-            int jumlah_sks = m_DataPenerimaanMitra.getJumlahSKSByIdMhs(id_mahasiswa);
-            return jumlah_sks;
+            object[] penerimaan_mitra = m_DataPenerimaanMitra.getPenerimaanMitraByIdMhs(id_mahasiswa);
+            return int.Parse(penerimaan_mitra[3].ToString());
         }
 
         public void tambahKonversiSks(object[] konversiSksBaru)
         {
             m_DataKonversiSks.sendDataKonversiSks(konversiSksBaru);
+        }
+
+        public object[] getDataPenerimaanByIdMhs(int id_mahasiswa)
+        {
+            object[] result = this.m_DataPenerimaanMitra.getPenerimaanMitraByIdMhs(id_mahasiswa);
+            return result;
         }
     }
 }

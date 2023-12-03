@@ -122,29 +122,71 @@ namespace Baskom.View
         private void btn_tambahmatkul_Click(object sender, EventArgs e)
         {
             string message = "";
-            if (!int.TryParse(tbx_jumlahsks.Text, out _))
+
+            if (tbx_kodematakuliah.Text == "")
             {
-                message = "Jumlah SKS Bernilai Angka!";
+                message = "Kode Mata Kuliah Tidak Boleh Kosong!";
                 MessageBox.Show(message);
             }
-            object[] matkul = new object[3];
-            matkul[0] = tbx_kodematakuliah.Text;
-            matkul[1] = tbx_namamatakuliah.Text;
-            matkul[2] = int.Parse(tbx_jumlahsks.Text);
-            message = c_TambahMataKuliah.tambahMataKuliahBaru(matkul);
-            if (message.Length > 0)
+            else if (tbx_kodematakuliah.Text.ToCharArray().Any(c => !Char.IsLetterOrDigit(c)))
             {
+                message = "Kode Mata Kuliah Terdiri Huruf dan Angka!";
+                MessageBox.Show(message);
+            }
+            else if (tbx_namamatakuliah.Text == "")
+            {
+                message = "Nama Mata Kuliah Tidak Boleh Kosong!";
+                MessageBox.Show(message);
+            }
+            else if (tbx_namamatakuliah.Text.ToCharArray().Any(c => Char.IsNumber(c)))
+            {
+                message = "Nama Mata Kuliah Hanya Huruf!";
+                MessageBox.Show(message);
+            }
+            else if (tbx_jumlahsks.Text == "")
+            {
+                message = "Jumlah SKS Tidak Boleh Kosong!";
+                MessageBox.Show(message);
+            }
+            else if (tbx_jumlahsks.Text.ToCharArray().Any(c => Char.IsLetter(c) || Char.IsWhiteSpace(c)))
+            {
+                message = "Jumlah SKS Hanya Berisi Angka!";
+                MessageBox.Show(message);
+            }
+            else if (tbx_jumlahsks.Text.Count() > 4)
+            {
+                message = "Jumlah SKS Maksimal 4!";
                 MessageBox.Show(message);
             }
             else
             {
-                this.init();
+                object[] matkul = new object[3];
+
+                matkul[0] = tbx_kodematakuliah.Text;
+                matkul[1] = tbx_namamatakuliah.Text;
+                matkul[2] = int.Parse(tbx_jumlahsks.Text);
+
+                message = c_TambahMataKuliah.tambahMataKuliahBaru(matkul);
+
+                if (message.Length > 0)
+                {
+                    MessageBox.Show(message);
+                }
+                else
+                {
+                    this.init();
+                }
             }
         }
 
         private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Baskom.View
     {
         private c_Dashboard c_Dashboard;
         private m_DataAkunMahasiswa data_akun_pengguna;
-        private c_KonversiNilai c_KonversiNilai;
+        private c_TambahKonversiNilai c_TambahKonversiNilai;
         List<object[]> list_data_sks;
         List<object[]> list_data_matkul;
         List<object[]> list_data_matkul_dinilai = new List<object[]>();
@@ -27,7 +27,7 @@ namespace Baskom.View
         {
             InitializeComponent();
             this.c_Dashboard = c_Dashboard;
-            this.c_KonversiNilai = new c_KonversiNilai(m_DataKonversiSks, m_DataKonversiNilai, m_DataMataKuliah);
+            this.c_TambahKonversiNilai = new c_TambahKonversiNilai(m_DataKonversiSks, m_DataKonversiNilai, m_DataMataKuliah);
             this.data_akun_pengguna = data_akun_pengguna;
             data_mahasiswa = data_akun_pengguna.getAttributes();
 
@@ -35,12 +35,45 @@ namespace Baskom.View
             this.isiComboBox();
         }
 
+        private void cekDataPenerimaan()
+        {
+            List<object[]> dataSKS = c_TambahKonversiNilai.getDataSksByIdMhs((int)data_mahasiswa[0]);
+            bool available = false;
+
+            foreach (var item in dataSKS)
+            {
+                if (item != null)
+                {
+                    available = true;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (!available)
+            {
+                cbx_matkulajukan.Enabled = false;
+                tbx_nilai.Enabled = false;
+                tbx_bukti.Enabled = false;
+                btn_inputmatkul.Enabled = false;
+            }
+            else
+            {
+                cbx_matkulajukan.Enabled = true;
+                tbx_nilai.Enabled = true;
+                tbx_bukti.Enabled = true;
+                btn_inputmatkul.Enabled = true;
+            }
+        }
+
         public void init()
         {
             dataGridView1.Rows.Clear();
 
             List<object[]> list_konversi_nilai = new List<object[]>();
-            this.list_data_sks = c_KonversiNilai.getDataSksByIdMhs((int)data_mahasiswa[0]);
+            this.list_data_sks = c_TambahKonversiNilai.getDataSksByIdMhs((int)data_mahasiswa[0]);
 
             List<int> list_id_konversi_sks = new List<int>();
             List<int> list_id_matkul = new List<int>();
@@ -54,8 +87,8 @@ namespace Baskom.View
                 }
             }
 
-            list_konversi_nilai = c_KonversiNilai.getDataNilaiByIdSks(list_id_konversi_sks);
-            list_data_matkul = c_KonversiNilai.getMataKuliah(list_id_matkul);
+            list_konversi_nilai = c_TambahKonversiNilai.getDataNilaiByIdSks(list_id_konversi_sks);
+            list_data_matkul = c_TambahKonversiNilai.getMataKuliah(list_id_matkul);
 
             for (int i = 0; i < list_konversi_nilai.Count(); i++)
             {
@@ -176,14 +209,20 @@ namespace Baskom.View
             {
                 string message = "Kolom Nilai Harus Diisi!";
                 MessageBox.Show(message);
-            } else if (int.Parse(tbx_nilai.Text) > 100)
+            }
+            else if (tbx_nilai.Text.ToCharArray().Any(c => Char.IsLetter(c) || Char.IsWhiteSpace(c)))
+            {
+                string message = "Nilai Hanya Berisi Angka!";
+                MessageBox.Show(message);
+            }
+            else if (int.Parse(tbx_nilai.Text) > 100)
             {
                 string message = "Nilai Maksimal 100!";
                 MessageBox.Show(message);
             }
             else if (tbx_bukti.Text == "")
             {
-                string message = "Kolom Bukti Harus Dinilai!";
+                string message = "Kolom Bukti Harus Diisi!";
                 MessageBox.Show(message);
             }
             else if (matkulDipilih.ToString() == "")
@@ -207,7 +246,7 @@ namespace Baskom.View
                             {
                                 konversiNilaiBaru[3] = (int)item_sks[0];
 
-                                c_KonversiNilai.tambahKonversiNilai(konversiNilaiBaru);
+                                c_TambahKonversiNilai.tambahKonversiNilai(konversiNilaiBaru);
                             }
                         }
                     }
@@ -229,7 +268,7 @@ namespace Baskom.View
         private void statusMitraToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
-            c_Dashboard.setStatusMOA();
+            c_Dashboard.setPengajuanMOA();
         }
 
         private void mataKuliahToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,11 +291,6 @@ namespace Baskom.View
         private void konversiNilaiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //this
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

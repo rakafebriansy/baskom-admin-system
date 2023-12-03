@@ -10,24 +10,15 @@ namespace Baskom.Controller
     internal class c_TambahPengajuanMitra
     {
         private m_DataPengajuanMitra m_DataPengajuanMitra;
-        private m_Data_Status_Validasi_Mitra m_Data_Status_Validasi_Mitra;
-
-        public c_TambahPengajuanMitra(m_DataPengajuanMitra m_DataPengajuanMitra, m_Data_Status_Validasi_Mitra m_Data_Status_Validasi_Mitra)
+        public c_TambahPengajuanMitra(m_DataPengajuanMitra m_DataPengajuanMitra)
         {
             this.m_DataPengajuanMitra = m_DataPengajuanMitra;
-            this.m_Data_Status_Validasi_Mitra = m_Data_Status_Validasi_Mitra;
         }
 
 
         public List<object[]> getAllDataPengajuan()
         {
             List<object[]> result = this.m_DataPengajuanMitra.getAllPengajuanMitra();
-            return result;
-        }
-
-        public List<object[]> getDataStatus()
-        {
-            List<object[]> result = m_Data_Status_Validasi_Mitra.getAllDataStatus();
             return result;
         }
 
@@ -43,11 +34,6 @@ namespace Baskom.Controller
                 }
             }
             m_DataPengajuanMitra.sendPengajuan(pengajuan_mitra_baru);
-        }
-
-        public void updateStatus(int id_status, int id_pengajuan)
-        {
-            m_DataPengajuanMitra.updateStatusPengajuanMitra(id_status, id_pengajuan);
         }
     }
 }

@@ -92,7 +92,7 @@ namespace Baskom.View
         private void statusMitraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            c_Dashboard.setStatusMOA();
+            c_Dashboard.setPengajuanMOA();
         }
 
         private void mataKuliahToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,6 +120,11 @@ namespace Baskom.View
         private void informasiAkunToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //this
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

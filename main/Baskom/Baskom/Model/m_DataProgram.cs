@@ -24,6 +24,17 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
+        public List<string> getAllNamaProgram()
+        {
+            List<string> result = new List<string>();
+            NpgsqlDataReader reader = Database.Database.getData($"SELECT nama_program FROM \"Data_Program\";");
+            while (reader.Read())
+            {;
+                result.Add((string)reader[0]);
+            }
+            reader.Close();
+            return result;
+        }
         public object[] getProgramById(int id_program)
         {
             NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Program\" WHERE id_program = {id_program};");
@@ -50,7 +61,6 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
-
         public List<object[]> getDataProgramByIdProgram(List<int> id_program)
         {
             List<object[]> result = new List<object[]>();

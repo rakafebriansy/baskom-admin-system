@@ -26,5 +26,11 @@ namespace Baskom.Model
             string query = $"INSERT INTO \"Data_Mata_Kuliah_Tempuh\" (id_matkul, id_mahasiswa) VALUES ('{matkultempuh_id_matkul}',{matkultempuh_id_mahasiswa});";
             Database.Database.sendData(query);
         }
+
+        public void hapusMataKuliah(int id_mahasiswa, int id_matkul)
+        {
+            string query = $"DELETE FROM \"Data_Mata_Kuliah_Tempuh\" WHERE id_matkul = {id_matkul} and id_mahasiswa = {id_mahasiswa};";
+            Database.Database.sendData(query);
+        }
     }
 }

@@ -30,9 +30,9 @@ namespace Baskom.Model
         {
             List<object[]> result = new List<object[]>();
 
-            foreach (int id_matkul in list_id_matkul_tempuh)
+            foreach (object id_matkul in list_id_matkul_tempuh)
             {
-                NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Mata_Kuliah\" WHERE id_matkul = {id_matkul};");
+                NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Mata_Kuliah\" WHERE id_matkul = {(int)id_matkul};");
                 int field_count = reader.FieldCount;
                 while (reader.Read())
                 {
@@ -68,7 +68,6 @@ namespace Baskom.Model
             }
             return result;
         }
-
         public List<object[]> getAllNonMatkulTempuhByIdMatkulTempuh(List<int> list_id_matkul_tempuh)
         {
             List<object[]> result = new List<object[]>();
@@ -87,7 +86,6 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
-
         public void sendMataKuliah(object[] matkul)
         {
             string query = $"INSERT INTO \"Data_Mata_Kuliah\" (kode_matkul, nama_matkul, sks) VALUES ('{matkul[0]}','{matkul[1]}',{matkul[2]});";
@@ -108,9 +106,26 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
+
         public object[] getMataKuliahByNama(string nama_matkul)
         {
             NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Mata_Kuliah\" WHERE nama_matkul = '{nama_matkul}';");
+            int field_count = reader.FieldCount;
+            object[] result = new object[field_count];
+            while (reader.Read())
+            {
+                result[0] = reader[0];
+                result[1] = reader[1];
+                result[2] = reader[2];
+                result[3] = reader[3];
+            }
+            reader.Close();
+            return result;
+        }
+
+        public object[] getMataKuliahByKode(string kode_matkul)
+        {
+            NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Mata_Kuliah\" WHERE kode_matkul = '{kode_matkul}';");
             int field_count = reader.FieldCount;
             object[] result = new object[field_count];
             while (reader.Read())

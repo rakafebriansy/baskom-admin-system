@@ -67,10 +67,11 @@ namespace Baskom.Model
              m_DataAkunDosen m_DataAkunDosen = new();
             return m_DataAkunDosen.getAttributes(this.timmbkm_id_dosen);
         }
-        public void sendTimmbkm(string nidn, string id_dosen)
+        public void sendTimmbkm(string nidn, int id_dosen)
         {
             Database.Database.sendData($"INSERT INTO \"Data_Akun_Timmbkm\" (nidn,id_dosen) VALUES ('{nidn}',{id_dosen});");
         }
+
         public List<object[]> getAllTimmbkm()
         {
             List<object[]> result = new List<object[]>();

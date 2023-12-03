@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,115 +17,131 @@ namespace Baskom.View
     {
         private c_Dashboard c_Dashboard;
         private m_DataAkunMahasiswa data_akun_pengguna;
-        private c_TambahPengajuanMitra c_TambahPengajuanMitra;
-        object[] data_mahasiswa;
-        List<object[]> data_pengajuan;
-        List<object[]> data_status;
-        object[] mitra_baru = new object[5];
-        int id_status;
-        bool available = false;
-        public v_PengajuanMOA(c_Dashboard c_Dashboard, m_DataAkunMahasiswa data_akun_pengguna, m_DataPengajuanMitra m_DataPengajuanMitra, m_Data_Status_Validasi_Mitra m_Data_Status_Validasi_Mitra)
+        private c_PengajuanMOA c_PengajuanMOA;
+        object[] pengajuan_mitra_baru = new object[5];
+        bool available;
+        public v_PengajuanMOA(c_Dashboard c_Dashboard, m_DataAkunMahasiswa data_akun_pengguna, m_DataPengajuanMitra m_DataPengajuanMitra, m_DataStatusValidasiMitra m_DataStatusValidasiMitra)
         {
             InitializeComponent();
             this.c_Dashboard = c_Dashboard;
             this.c_Dashboard = c_Dashboard;
-            this.c_TambahPengajuanMitra = new c_TambahPengajuanMitra(m_DataPengajuanMitra, m_Data_Status_Validasi_Mitra);
+            this.c_PengajuanMOA = new c_PengajuanMOA(m_DataPengajuanMitra, m_DataStatusValidasiMitra);
             this.data_akun_pengguna = data_akun_pengguna;
-            this.data_mahasiswa = data_akun_pengguna.getAttributes();
-            this.data_pengajuan = c_TambahPengajuanMitra.getAllDataPengajuan();
-            this.data_status = c_TambahPengajuanMitra.getDataStatus();
+            this.available = false;
+            List<string> data_status = m_DataStatusValidasiMitra.getAllStatusValidasiMitra();
+            foreach (string item in data_status)
+            {
+                if (item == "Telah Diajukan" || item == "Telah Disetujui Mitra")
+                {
+                    cbx_statusmitra.Items.Add(item);
+                }
+            }
+
 
             this.setMOA();
         }
         public void setMOA()
         {
-            tbx_namamitra.Enabled = false;
-            tbx_deksripsimitra.Enabled = false;
+            object[] data_mahasiswa = this.data_akun_pengguna.getAttributes();
+            List<object[]> data_pengajuan = c_PengajuanMOA.getAllPengajuanMitra();
 
             foreach (object[] item in data_pengajuan)
             {
                 if ((int)item[4] == (int)data_mahasiswa[0])
                 {
                     this.available = true;
-                    this.mitra_baru = item;
+                    this.pengajuan_mitra_baru = item;
                     break;
                 }
             }
 
-            if (available)
+            if (this.available)
             {
-                tbx_namamitra.Text = (string)mitra_baru[1];
-                tbx_deksripsimitra.Text = (string)mitra_baru[2];
-                this.setStatus((int)mitra_baru[3]);
+                tbx_namamitra.Enabled = false;
+                tbx_deksripsimitra.Enabled = false;
+                tbx_namamitra.Text = (string)pengajuan_mitra_baru[1];
+                tbx_deksripsimitra.Text = (string)pengajuan_mitra_baru[2];
+                this.setStatus((int)pengajuan_mitra_baru[3]);
             }
             else
             {
-                btn_simpanstatus.Text = "Kembali";
+                tbx_namamitra.Enabled = true;
+                tbx_deksripsimitra.Enabled = true;
                 cbx_statusmitra.Enabled = false;
             }
         }
-
         public void setStatus(int id_status)
         {
-            if(id_status == 1)
+
+            string status = c_PengajuanMOA.getStatusValidasiMitraById(id_status);
+            if (status == "Belum Dibuat")
             {
                 cbx_statusmitra.Enabled = false;
-                cbx_statusmitra.Text = (string)data_status[id_status - 1][1];
+                cbx_statusmitra.Text = status;
 
-            } else if (id_status == 2)
+            }
+            else if (status == "Sudah Dibuat")
             {
-                cbx_statusmitra.Text = (string)data_status[id_status - 1][1];
                 cbx_statusmitra.Enabled = true;
-
-                foreach (object[] item in data_status)
-                {
-                    if ((int)item[0] == id_status+1)
-                    {
-                        cbx_statusmitra.Items.Add(item[1]);
-                    }
-                }
-            } else if (id_status == 3)
+                cbx_statusmitra.Text = status;
+            }
+            else if (status == "Telah Diajukan")
             {
-                cbx_statusmitra.Text = (string)data_status[id_status - 1][1];
                 cbx_statusmitra.Enabled = true;
-
-                foreach (object[] item in data_status)
-                {
-                    if ((int)item[0] == id_status + 1)
-                    {
-                        cbx_statusmitra.Items.Add(item[1]);
-                    }
-                }
-            } else if (id_status == 4)
+                cbx_statusmitra.Text = status;
+            }
+            else if (status == "Telah Disetujui Mitra")
             {
                 cbx_statusmitra.Enabled = false;
-                cbx_statusmitra.Text = (string)data_status[id_status - 1][1];
-            } else if (id_status == 5)
+                cbx_statusmitra.Text = status;
+            }
+            else if (status == "Selesai")
             {
                 cbx_statusmitra.Enabled = false;
-                cbx_statusmitra.Text = (string)data_status[id_status - 1][1];
+                cbx_statusmitra.Text = status;
             }
         }
 
         private void btn_simpanstatus_Click(object sender, EventArgs e)
         {
-            this.Close();
-            c_Dashboard.setDashboardMahasiswa();
-
+            string message = "";
             object status = cbx_statusmitra.SelectedItem;
-            object statusDipilih = cbx_statusmitra.GetItemText(status);
+            object status_dipilih = cbx_statusmitra.GetItemText(status);
 
-            foreach (object[] item in data_status)
+            if (tbx_namamitra.Text == "")
             {
-                if ((string)item[1] == (string)statusDipilih)
+                message = "Nama Mitra Tidak Boleh Kosong!";
+                MessageBox.Show(message);
+            } else if (tbx_deksripsimitra.Text == "")
+            {
+                message = "Deskripsi Mitra Tidak Boleh Kosong!";
+                MessageBox.Show(message);
+            } else
+            {
+                if (((string)status_dipilih).Length > 0)
                 {
-                    this.id_status = (int)item[0];
+                    message = c_PengajuanMOA.updateStatusValidasi((string)status_dipilih, (int)pengajuan_mitra_baru[0]);
                 }
-            }
+                else
+                {
+                    object[] pengajuan_mitra_baru = new object[4];
+                    pengajuan_mitra_baru[0] = tbx_namamitra.Text;
+                    pengajuan_mitra_baru[1] = tbx_deksripsimitra.Text;
+                    pengajuan_mitra_baru[2] = "Belum Dibuat";
+                    pengajuan_mitra_baru[3] = data_akun_pengguna.getAttributes()[0];
+                    message = c_PengajuanMOA.tambahPengajuanMitra(pengajuan_mitra_baru);
+                }
+                if (message.Length > 0)
+                {
+                    MessageBox.Show(message);
+                } else
+                {
+                    setMOA();
+                    message = "Mitra Berhasil Ditambahkan!";
+                    MessageBox.Show(message);
+                }
 
-            if (id_status != 0)
-            {
-                c_TambahPengajuanMitra.updateStatus(id_status, (int)mitra_baru[0]);
+                this.Close();
             }
         }
         private void statusmitra_Load(object sender, EventArgs e)
