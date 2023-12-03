@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "N5zjGO2y4q4deoDWBClJp8Strvpcq3abpvAYiZIhR01VVfUIT5rT2BJgLNnJ6DXvSG/3ciIl1RYmTLZ5h6Gsrg==",
+  "dgSpecHash": "icCZ2B3ywlqAQ5z4TZ+SvPssN8DthziMvmkp4hw7OO7RHM8SLR4XEwIy7gCqIJsRWBitIjaNdrdEHDVSLcgU8w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Documents\\GitHub\\baskom\\main\\Baskom\\Baskom\\Baskom.csproj",
+  "projectFilePath": "D:\\CINTA CODING\\baskom\\main\\Baskom\\Baskom\\Baskom.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\HP\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
-    "C:\\Users\\HP\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512",
-    "C:\\Users\\HP\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

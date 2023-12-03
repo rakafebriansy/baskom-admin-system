@@ -143,17 +143,17 @@ VALUES ('Pertukaran Mahasiswa Merdeka', 'Program Pertukaran Mahasiswa Merdeka me
 SELECT * FROM "Data_BKP";
 
 
-INSERT INTO "Data_Mitra"(nama_mitra, deskripsi_mitra, id_bkp)
-VALUES ('GoTo Impact Foundation', 'GoTo Impact Foundation (GIF) adalah organisasi akselerator dampak yang menggabungkan jiwa empati filantropi dengan semangat berinovasi sociopreneur',1),
-('Alterra Academy', 'Alterra Academy (ALTA) is a tech talent accelerator who helps potential tech talents to be the best version of themselves and help organization findin',2),
-('B-One Corporation', 'B One Corporation adalah perusahaan yang bergerak dalam kegiatan pelayanan di bidang Teknologi Informasi dan Komunikasi, yang telah berdiri sejak tahun 2009',3),
-('Direktorat Jenderal Pendidikan Tinggi', 'Direktorat Jenderal Pendidikan Tinggi (Ditjen Dikti) merupakan salah satu unit utama di Kementerian Pendidikan dan Kebudayaan',4),
-('Dicoding Indonesia', 'Dicoding hadir sebagai platform pendidikan teknologi yang membantu menghasilkan talenta digital berstandar global.',5),
-('GreatEdu', 'GreatEdu merupakan platform belajar online untuk upskilling dan reskilling',6),
-('Bangkit Academy', 'Bangkit adalah program kesiapan karier yang didesain oleh Google untuk memberikan mahasiswa Indonesia paparan langsung dengan praktisi industri',7),
-('Dinas Komunikasi dan Informatika Kota Surabaya', 'Dinas Komunikasi dan Informatika Kota Surabaya adalah Dinas yang mempunyai tugas melaksanakan kewenangan daerah di bidang pengelolaan Teknologi',8),
-('Data Academy', 'Data Academy is a study center for data professionals together with education, industry, government and community in building skills in Data Science and Artificial Intelligence (AI)',3),
-('Binar Academy', 'Binar Academy merupakan pelopor startup edtech yang fokus pada pengembangan skil dan talenta digital dengan meningkatkan pengalaman belajar',7);
+INSERT INTO "Data_Mitra"(nama_mitra, deskripsi_mitra)
+VALUES ('GoTo Impact Foundation', 'GoTo Impact Foundation (GIF) adalah organisasi akselerator dampak yang menggabungkan jiwa empati filantropi dengan semangat berinovasi sociopreneur'),
+('Alterra Academy', 'Alterra Academy (ALTA) is a tech talent accelerator who helps potential tech talents to be the best version of themselves and help organization findin'),
+('B-One Corporation', 'B One Corporation adalah perusahaan yang bergerak dalam kegiatan pelayanan di bidang Teknologi Informasi dan Komunikasi, yang telah berdiri sejak tahun 2009'),
+('Direktorat Jenderal Pendidikan Tinggi', 'Direktorat Jenderal Pendidikan Tinggi (Ditjen Dikti) merupakan salah satu unit utama di Kementerian Pendidikan dan Kebudayaan'),
+('Dicoding Indonesia', 'Dicoding hadir sebagai platform pendidikan teknologi yang membantu menghasilkan talenta digital berstandar global.'),
+('GreatEdu', 'GreatEdu merupakan platform belajar online untuk upskilling dan reskilling'),
+('Bangkit Academy', 'Bangkit adalah program kesiapan karier yang didesain oleh Google untuk memberikan mahasiswa Indonesia paparan langsung dengan praktisi industri'),
+('Dinas Komunikasi dan Informatika Kota Surabaya', 'Dinas Komunikasi dan Informatika Kota Surabaya adalah Dinas yang mempunyai tugas melaksanakan kewenangan daerah di bidang pengelolaan Teknologi'),
+('Data Academy', 'Data Academy is a study center for data professionals together with education, industry, government and community in building skills in Data Science and Artificial Intelligence (AI)'),
+('Binar Academy', 'Binar Academy merupakan pelopor startup edtech yang fokus pada pengembangan skil dan talenta digital dengan meningkatkan pengalaman belajar');
 SELECT * FROM "Data_Mitra";
 
 
@@ -185,14 +185,14 @@ VALUES ('KMU1018', 'Pemrograman Back-End', 3),
 SELECT * FROM "Data_Mata_Kuliah";
 
 
-INSERT INTO "Data_Prodi" (nama_prodi)
-VALUES ('Sistem Informasi'), ('Teknologi Informasi'), ('Informatika');
-SELECT * FROM "Data_Prodi";
+-- INSERT INTO "Data_Prodi" (nama_prodi)
+-- VALUES ('Sistem Informasi'), ('Teknologi Informasi'), ('Informatika');
+-- SELECT * FROM "Data_Prodi";
 
 
-INSERT INTO "Data_Akun_Admin" (nama_admin, email, kata_sandi) 
-VALUES ('admin','admin@gmail.com','admin');
-SELECT * FROM "Data_Akun_Admin";
+-- INSERT INTO "Data_Akun_Admin" (nama_admin, email, kata_sandi) 
+-- VALUES ('admin','admin@gmail.com','admin');
+-- SELECT * FROM "Data_Akun_Admin";
 
 INSERT INTO "Data_Akun_Dosen" (nip, nidn, nama_dosen, no_wa, email, kata_sandi) 
 VALUES ('196909281993021001', '0028096909', 'Antonius Cahya Prihandoko', '081234567891', 'antoniuscp.ilkom@unej.ac.id', 'antoniuspass123'),

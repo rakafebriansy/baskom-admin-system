@@ -292,3 +292,5 @@ C:\Users\HP\Documents\Baskom\Baskom\obj\Debug\net6.0-windows\ref\Baskom.dll
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailDosen.resources
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailMahasiswa.resources
 C:\Users\HP\Documents\GitHub\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_LihatMataKuliahProgram.resources
+D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailDosen.resources
+D:\CINTA CODING\baskom\main\Baskom\Baskom\obj\Debug\net6.0-windows\Baskom.View.v_DetailMahasiswa.resources

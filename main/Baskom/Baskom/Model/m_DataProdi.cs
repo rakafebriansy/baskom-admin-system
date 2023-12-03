@@ -39,7 +39,7 @@ namespace Baskom.Model
         }
         public string getNamaProdiById(int id_prodi)
         {
-            NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Prodi\" WHERE id_prodi = '{id_prodi}'");
+            NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Prodi\" WHERE id_prodi = {id_prodi}");
             while (reader.Read())
             {
                 this.nama_prodi = (string)reader[1];

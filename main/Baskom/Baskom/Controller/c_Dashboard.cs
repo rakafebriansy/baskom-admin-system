@@ -1,6 +1,5 @@
 ﻿using Baskom.Model;
 using Baskom.View;
-using Baskom.View_Lama;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -205,6 +204,16 @@ namespace Baskom.Controller
         {
             v_LihatMataKuliahProgram v_LihatMataKuliahProgram = new(this, (m_DataAkunMahasiswa)this.data_akun_pengguna, this.m_DataPenerimaanMitra, this.m_DataDetailProgram, this.m_DataMataKuliah);
             v_LihatMataKuliahProgram.Show();
+        }
+        public void setDetailMahasiswa(string nim)
+        {
+            v_DetailMahasiswa v_DetailMahasiswa = new(this.m_DataAkunMahasiswa, this.m_DataProdi, nim);
+            v_DetailMahasiswa.Show();
+        }
+        public void setDetailDosen(string nidn)
+        {
+            v_DetailDosen v_DetailDosen = new(this.m_DataAkunDosen,m_DataAkunTimmbkm,nidn);
+            v_DetailDosen.Show();
         }
     }
 }

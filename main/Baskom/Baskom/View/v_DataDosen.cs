@@ -47,7 +47,11 @@ namespace Baskom.View
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int index = e.RowIndex;
+            if (e.ColumnIndex == 2)
+            {
+                c_Dashboard.setDetailDosen((string)tbl_daftardosenadmin.Rows[index].Cells[1].Value);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

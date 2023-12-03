@@ -1,6 +1,5 @@
 ﻿using Baskom.Model;
 using Baskom.View;
-using Baskom.View_Lama;
 using System;
 using System.Collections.Generic;
 using System.Linq;

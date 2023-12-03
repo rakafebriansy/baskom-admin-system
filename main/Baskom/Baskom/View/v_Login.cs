@@ -1,5 +1,4 @@
 ﻿using Baskom.Controller;
-using Baskom.View_Lama;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

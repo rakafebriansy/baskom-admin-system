@@ -10,7 +10,7 @@ namespace Baskom.Database
 {
     static class Database
     {
-        static NpgsqlConnection conn = new NpgsqlConnection("Host=localhost;Username=postgres;Password=sella123;Database=baskom");
+        static NpgsqlConnection conn = new NpgsqlConnection("Host=localhost;Username=postgres;Password=123;Database=baskom");
         public static void openDb()
         {
             conn.Open();

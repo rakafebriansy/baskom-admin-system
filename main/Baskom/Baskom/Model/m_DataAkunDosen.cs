@@ -61,6 +61,23 @@ namespace Baskom.Model
             reader.Close();
             return result;
         }
+        public object[] getDosenByNip(string nip)
+        {
+            object[] result = new object[7];
+            NpgsqlDataReader reader = Database.Database.getData($"SELECT * FROM \"Data_Akun_Dosen\" WHERE nip = '{nip}'");
+            while (reader.Read())
+            {
+                result[0] = reader[0];
+                result[1] = reader[1];
+                result[2] = reader[2];
+                result[3] = reader[3];
+                result[4] = reader[4];
+                result[5] = reader[5];
+                result[6] = reader[6];
+            }
+            reader.Close();
+            return result;
+        }
         public List<object[]> getAllDosen()
         {
             List<object[]> result = new List<object[]>();

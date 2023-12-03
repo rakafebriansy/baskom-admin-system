@@ -51,11 +51,12 @@ namespace Baskom.View
                 deskripsi.Value = data[i][2];
 
                 DataGridViewComboBoxCell status_validasi = new DataGridViewComboBoxCell();
+                status_validasi.Items.Add(data[i][3]);
                 if ((string)data[i][3] == "Belum Dibuat" || (string)data[i][3] == "Sudah Dibuat" || (string)data[i][3] == "Selesai")
                 {
                     foreach (string status in list_status)
                     {
-                        if (status == "Belum Dibuat" || status == "Sudah Dibuat" || status == "Selesai")
+                        if (status != "Belum Dibuat" && status != "Sudah Dibuat" && status != "Selesai")
                         {
                             status_validasi.Items.Add(status);
                         }
@@ -65,7 +66,7 @@ namespace Baskom.View
                 {
                     foreach (string status in list_status)
                     {
-                        if (status == "Telah Diajukan" || status == "Telah Disetujui Mitra")
+                        if (status != "Telah Diajukan" && status != "Telah Disetujui Mitra")
                         {
                             status_validasi.Items.Add(status);
                         }
@@ -79,10 +80,8 @@ namespace Baskom.View
                 row.Cells.Add(status_validasi);
 
                 tbl_statuspengajuanmoa.Rows.Add(row);
-                if ((string)data[i][3] == "Telah Diajukan")
-                {
-                    status_validasi.ReadOnly = true;
-                } else if ((string)data[i][3] == "Telah Disetujui Mitra")
+                status_validasi.ReadOnly = true;
+                if ((string)data[i][3] == "Telah Disetujui Mitra" || (string)data[i][3] == "Belum Dibuat" )
                 {
                     status_validasi.ReadOnly = false;
                 }

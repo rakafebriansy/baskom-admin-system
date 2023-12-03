@@ -51,7 +51,11 @@ namespace Baskom.View
 
         private void tbl_daftarmhsadmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int index = e.RowIndex;
+            if (e.ColumnIndex == 3)
+            {
+                c_Dashboard.setDetailMahasiswa((string)tbl_daftarmhsadmin.Rows[index].Cells[1].Value);
+            }
         }
 
         private void akunDosenToolStripMenuItem_Click(object sender, EventArgs e)
